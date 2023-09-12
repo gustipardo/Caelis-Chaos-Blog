@@ -1,23 +1,21 @@
 ---
-import "../styles/global.css";
-import Navigation from "../components/Navigation.astro"
-const { pageTitle } = Astro.props;
----
 
-<html lang="en">
+import BlogPost from '../components/BlogPost.astro';
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+const { title } = Astro.props
+const allPosts = await Astro.glob("../pages/posts/*.md");
+---
+<html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <Navigation/>
-    <h1>{pageTitle}</h1>
-    <slot />
-    <script>
-
-    </script>
+    <h1>{title}</h1>
+    <article>
+      <slot />
+    </article>
   </body>
 </html>

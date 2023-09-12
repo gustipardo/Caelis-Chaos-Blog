@@ -3,6 +3,9 @@ import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro'
 import Layout from '../layout/Layout.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <html lang="en">
@@ -11,12 +14,23 @@ import Layout from '../layout/Layout.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Caelis Chaos Blog</title>
 	</head>
 	<body>
-		<Layout pageTitle="index">
-			<h1>HOlaa</h1>
+		<Layout title="Updates">
+			<p>This is where I will post all the updates of Caelis Chaos.</p>
+			<ul>
+				{allPosts.map((post) => <BlogPost 
+				url={post.url} 
+				title={post.frontmatter.title} 
+				author={post.frontmatter.author} 
+				date={post.frontmatter.date} 
+				description={post.frontmatter.description} 
+				updateNumber={post.frontmatter.updateNumber} 
+				img={post.frontmatter.image.url}
+				/>)}
+			</ul>
 		</Layout>
 
-	  </body>
+	</body>
 </html>
