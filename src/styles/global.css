@@ -1,16 +1,18 @@
+:root {
+  --color-0: #17181B;
+  --color-1: #03045e;
+  --color-2: #0077b6;
+  --color-3: #00b4d8;
+  --color-4: #90e0ef;
+  --color-5: #caf0f8;
+}
+
 html {
-    background-color: #f1f5f9;
+    background-color: var(--color-4);
     font-family: sans-serif;
   }
   
-  body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
-  }
-  
+|
   * {
     box-sizing: border-box;
   }

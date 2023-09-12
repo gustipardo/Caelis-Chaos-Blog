@@ -11,19 +11,15 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      body, html {
+      h1, article {
         height: 100%;
         margin: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
+  
       }
-      html {
-  background-image: url('.././public/background3.jpg');
-  background-size: cover;
-}
 
     
       /* Estilo para el contenedor principal */
@@ -31,17 +27,15 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
         text-align: center;
       }
       body, h1, p {
-  color: #ffffff; /* Color blanco */
-}
+        color: var(--color-0); /* Color blanco */
+      }
     </style>
   </head>
   <body>
-    <div class="min-h-screen flex flex-col justify-center items-center">
     <Navigation client:visible/>
-    <h1 class="text-center">{title}</h1>
+    <h1 class="text-5xl font-extrabold dark:text-white">{title}</h1>
     <article class="text-center">
       <slot />
     </article>
-    </div>
   </body>
 </html>
