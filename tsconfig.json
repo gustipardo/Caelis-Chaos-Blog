@@ -11,9 +11,15 @@
       "@/layout": [
         "src/layout/*"
       ],
+      "@/styles": [
+        "src/styles/*"
+      ],
       "@/posts": [
         "src/pages/posts/*"
-      ]
+      ],
+      "@/icons": [
+        "src/icons/*"
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

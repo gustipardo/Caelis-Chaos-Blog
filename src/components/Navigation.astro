@@ -1,54 +1,29 @@
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      .navigation-container{
-        background-color: var(--color-3);
-        border-bottom: dashed 0.26em var(--color-0);
-      padding: 10px 0;
-      }
-    </style>
-  </head>
+---
+import "@/styles/Navigation.css";
+import SwordIcon from "@/icons/swords.astro";
+---
 
+<nav class="nav">
+  <ul class="nav-list">
 
-  <html lang="es">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <style>
-        .navigation-container {
-          background-color: var(--color3);
-        }
-        a{
-          color: var(--color0);
-        }
-      </style>
-    </head>
+    <li>
+      <a class="nav-list_item" href="/donations">About us</a>
+    </li>
+    <li>
+      <a class="nav-list_item" href="/updates">Updates</a>
+    </li>
+    <li>
+      <a class="nav-list_logo" href="/">
+        <p class="nav-list_logo_text">Caelis Chaos</p>
+        <SwordIcon class="nav-list_logo_icon" />
+      </a>
+    </li>
 
-    <body>
-      <div class="">
-        <nav class="">
-          <ul class="">
-            <li>
-              <a class="" href="/">Caelis Chaos</a>
-            </li>
-            <li>
-              <a href="/donations">Forum</a>
-            </li>
-            <li>
-              <a href="/updates">Updates</a>
-            </li>
-            <li>
-              <a href="/Wiki">Wiki</a>
-            </li>
-            <li>
-              <a  href="/Content">Content</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-    </body>
-    </html>
-    
+    <li>
+      <a class="nav-list_item" href="/Wiki">Wiki</a>
+    </li>
+    <li>
+      <a class="nav-list_item" href="/Content">Content</a>
+    </li>
+  </ul>
+</nav>
