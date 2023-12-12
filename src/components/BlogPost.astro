@@ -1,5 +1,5 @@
 ---
-const { title, url, author, date, description, updateNumber, img } = Astro.props
+const { title, url, authors, date, description, frontImage } = Astro.props
 ---
 <style>
   div{
@@ -9,19 +9,19 @@ const { title, url, author, date, description, updateNumber, img } = Astro.props
 </style>
 <a class="block outline-none" href={url}>
 <div class="max-w-sm w-full lg:max-w-full lg:flex">
-    <div class="h-48 lg:h-50 lg:w-40 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style={`background-image: url(${img})`}>
+    <div class="h-48 lg:h-50 lg:w-40 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style={`background-image: url(${frontImage})`}>
     </div>
     <div class="border-r lg:h-auto lg:w-60 border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
       <div class="mb-8">
         <p class="text-sm text-gray-600 flex items-center">
-            {updateNumber}
+
           </p>
         <div class="text-gray-900 font-bold text-xl mb-2">{title}</div>
         <p class="text-gray-700 text-base">{description}</p>
       </div>
       <div class="flex items-center">
         <div class="text-sm">
-          <p class="text-gray-900 leading-none">{author}</p>
+          <p class="text-gray-900 leading-none">{authors}</p>
           <p class="text-gray-600">{date}</p>
         </div>
       </div>

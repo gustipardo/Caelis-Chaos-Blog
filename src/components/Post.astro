@@ -1,0 +1,52 @@
+---
+import Header from "./Header.astro";
+
+const { title, url, authors, date, description, frontImage } = Astro.props;
+---
+
+<a id="post" href={url}>
+  <imagePost id="imagePost" class="[grid-area:imagePost]">
+    <img class="imagePost-image" src=`../../public/${frontImage}` />
+  </imagePost>
+  <headPost id="headPost" class="[grid-area:headPost]">
+    <h1 class="text-left">{title}</h1>
+    <p class="text-left">Posted by {authors} on {date}</p>
+  </headPost>
+  <descriptionPost id="descriptionPost" class="[grid-area:descriptionPost]">
+    <p class="text-left">{description}</p>
+  </descriptionPost>
+</a>
+
+<style>
+  #post {
+    display: grid;
+    grid-template-areas:
+    "imagePost headPost"
+    "imagePost descriptionPost";
+
+    grid-template-columns: auto auto;
+    grid-template-rows: auto 1fr;
+    border-radius: 12px;
+    padding: 0;
+    width: 100%;
+    border: 5px inset var(--color-accent);
+    margin-top: 20px;
+  }
+  #post:hover{
+    transform: scale(1.04);
+  }
+  #headPost{
+    border-bottom: 1px solid black;
+  }
+  .imagePost-image{
+    height: 160px;
+    width: 160px;
+  }
+  h1{
+    font-size: 22px;
+    margin: 0;
+  }
+  .text-left{
+    text-align: left;
+  }
+</style>
