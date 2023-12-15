@@ -6,7 +6,7 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
 
 <a id="post" href={url}>
   <imagePost id="imagePost" class="[grid-area:imagePost]">
-    <img class="imagePost-image" src=`../../public/${frontImage}` />
+    <img class="imagePost-image" src=`../../${frontImage}` />
   </imagePost>
   <headPost id="headPost" class="[grid-area:headPost]">
     <h1 class="text-left">{title}</h1>
