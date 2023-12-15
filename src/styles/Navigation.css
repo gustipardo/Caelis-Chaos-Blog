@@ -14,6 +14,7 @@
   .nav {
     background-color: var(--color-primary);
     padding: 10px;
+    width: 100vw;
   }
 
   .nav-list {
@@ -41,7 +42,7 @@
 
   .nav-list_logo_icon {
     margin-left: 5px;
-    order: -1; /* Colocar el icono arriba de todo */
+    order: -1;
     font-size: large;
   }
 
@@ -55,3 +56,8 @@
     color: var(--color-accent);
     border-bottom: solid 1px var(--color-accent);
 }
+
+.container-items-left {
+    text-align: right;
+  }
+
