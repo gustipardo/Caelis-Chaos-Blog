@@ -2,7 +2,6 @@
 
 import BlogPost from '@/components/BlogPost.astro';
 import Footer from '@/components/Footer.astro';
-import Navigation from '@/components/Navigation.astro';
 const { title } = Astro.props
 const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
@@ -32,7 +31,6 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
     </style>
   </head>
   <body>
-    <Navigation client:visible/>
     <h1 class="text-5xl font-extrabold dark:text-white">{title}</h1>
     <article class="text-center">
       <slot />
