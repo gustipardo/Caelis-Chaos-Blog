@@ -6,14 +6,14 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
 
 <a id="post" href={url}>
   <imagePost id="imagePost" class="[grid-area:imagePost]">
-    <img class="imagePost-image" src=`../../${frontImage}` />
+    <img class="imagePost-image" src={`../../${frontImage}`} />
   </imagePost>
   <headPost id="headPost" class="[grid-area:headPost]">
     <h1 class="text-left">{title}</h1>
     <p class="text-left">Posted by {authors} on {date}</p>
   </headPost>
   <descriptionPost id="descriptionPost" class="[grid-area:descriptionPost]">
-    <p class="text-left">{description}</p>
+    <p class="text-left truncated-text">{description}</p>
   </descriptionPost>
 </a>
 
@@ -31,6 +31,11 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
     width: 100%;
     border: 5px inset var(--color-accent);
     margin-top: 20px;
+    height: 220px;
+  }
+  #descriptionPost{
+
+    overflow: hidden;
   }
   #post:hover{
     transform: scale(1.04);
@@ -38,9 +43,15 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
   #headPost{
     border-bottom: 1px solid black;
   }
+
+  #imagePost{
+    display: flex;
+  align-items: center;
+  justify-content: center; 
+  }
   .imagePost-image{
-    height: 160px;
-    width: 160px;
+    max-height: 220px;
+    width: 220px;
   }
   h1{
     font-size: 22px;
@@ -49,4 +60,23 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
   .text-left{
     text-align: left;
   }
+
+  @media only screen and (max-width: 440px) {
+    #headPost{
+      overflow: hidden;
+    }
+    #post {
+    grid-template-areas:
+    "imagePost headPost"
+    "descriptionPost descriptionPost";
+
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 64% 36%;
+    
+    height: 220px;
+  }
+  #imagePost{
+    border-bottom: 1px solid black;
+  }
+}
 </style>
