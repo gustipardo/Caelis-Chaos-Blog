@@ -12,9 +12,7 @@ html {
     font-family: sans-serif;
   }
   
-body{
-  position:fixed
-}
+
   * {
     box-sizing: border-box;
   }
