@@ -1,78 +1,10 @@
 ---
 
-import Footer from '@/components/Footer.astro';
-import Navigation from '@/components/Navigation.astro';
-
-import '@/styles/global.css'
+const { frontmatter } = Astro.props;
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="@/styles/global.css" />
-  </head>
-  <body>
-    <Navigation/>
 
-    <article class="text-center">
-      <slot />
-    </article>
-    <Footer/>
-  </body>
-</html>
-<style>
-  h1, article {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-  
-      }
 
-    
-      /* Estilo para el contenedor principal */
-      div {
-        text-align: center;
-      }
-      body, h1, p {
-        color: var(--color-0); /* Color blanco */
-      }
-    .dark {
-      color: black;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      padding-top: 20px;
-    }
-
-    article {
-      text-align: center;
-    }
-    h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-}
-
-article {
-  max-width: 1000px;
-  text-align: left;
-  width: 100%;
-  background-color: var(--color-primary);
-  border: solid 4px var(--color-accent);
-  padding: 26px;
-}
-
-</style>
+  <p>{frontmatter.title}</p>
+  <p><em>{frontmatter.description}</em></p>
+  <p>Written by: {frontmatter.author}</p>
+  <slot />
