@@ -6,8 +6,7 @@ const today: string = new Date().getFullYear().toString();
 
 <footer>
 
-  <div style="float: left;">
-
+  <div class="links" style="float: left;">
       <a href="#">Terms of Use</a>
       <a href="#">Contact</a>
       <a href="#">Privacy</a>
@@ -106,5 +105,21 @@ a:hover {
 
 a:active {
   text-decoration: underline;
+}
+@media (max-width: 930px) {
+  .fortress_image, .fortress {
+    display: none;
+  }
+  footer{
+    height: 82px;
+    display: flex;
+  }
+  .copyright{
+    margin: 0;
+    height: 64px;
+  }
+  .links{
+    height: 64px;
+  }
 }
 </style>
