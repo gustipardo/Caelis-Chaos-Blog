@@ -1,10 +1,8 @@
 ---
 
-import BlogPost from '@/components/BlogPost.astro';
 import Footer from '@/components/Footer.astro';
 import Navigation from '@/components/Navigation.astro';
-const { title } = Astro.props
-const allPosts = await Astro.glob("../pages/posts/*.md");
+
 import '@/styles/global.css'
 ---
 <html lang="es">
@@ -15,7 +13,7 @@ import '@/styles/global.css'
   </head>
   <body>
     <Navigation/>
-    <h1 class="dark">{title}</h1>
+
     <article class="text-center">
       <slot />
     </article>
@@ -68,5 +66,13 @@ body {
   margin: 0;
 }
 
+article {
+  max-width: 1000px;
+  text-align: left;
+  width: 100%;
+  background-color: var(--color-primary);
+  border: solid 4px var(--color-accent);
+  padding: 26px;
+}
 
 </style>
