@@ -1,6 +1,4 @@
 ---
-
-import BlogPost from '@/components/BlogPost.astro';
 import Footer from '@/components/Footer.astro';
 import Navigation from '@/components/Navigation.astro';
 import '@/styles/global.css'
@@ -19,7 +17,7 @@ import '@/styles/global.css'
     <Footer/>
   </body>
 </html>
-<style>
+<style is:global>
   h1, article {
         height: 100%;
         margin: 0;
