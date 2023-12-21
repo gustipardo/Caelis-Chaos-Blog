@@ -5,62 +5,12 @@ import Layout from "@/layout/Layout.astro";
 import BlogPost from "@/components/BlogPost.astro";
 import Header from "@/components/Header.astro";
 import Post from "@/components/Post.astro";
-interface Frontmatter {
-  title: string;
-  date: string;
-  pubDate: string;
-  description: string;
-  author: string;
-  frontImage: string;
-}
 
-interface Post {
-  frontmatter: Frontmatter;
-  __usesAstroImage: boolean;
-  url: string;
-  file: string;
-  __esModule: boolean;
-  [Symbol.toStringTag]: string;
-}
-const allPosts = await Astro.glob("../pages/posts/*.mdx");
-console.log(allPosts);
-
-function comparePostsByDate(postA: any, postB: any): number {
-  const dateStringA = postA.frontmatter.date;
-  const dateStringB = postB.frontmatter.date;
-
-  const dateNumberA = parseInt(dateStringA.split('/').reverse().join(''));
-  const dateNumberB = parseInt(dateStringB.split('/').reverse().join(''));
-
-
-  return dateNumberB - dateNumberA;
-}
-
-const sortedPosts = allPosts.sort(comparePostsByDate);
-
-console.log(sortedPosts);
+  
 ---
-<Layout title="Updates">
+<Layout title="Caelis Chaos">
 
-  <ul>
-    {
-      sortedPosts.map((post) => (
-        <Post
-          url={post.url}
-          title={post.frontmatter.title}
-          authors={post.frontmatter.author}
-          date={post.frontmatter.date}
-          description={post.frontmatter.description}
-          frontImage={post.frontmatter.frontImage}
-        />
-      ))
-    }
-  </ul>
 </Layout>
 <style>
-	ul{
-		margin-top: 26px;
-		max-width: 1000px;
-	}
 
 </style>
