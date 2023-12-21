@@ -22,7 +22,7 @@ interface Post {
   __esModule: boolean;
   [Symbol.toStringTag]: string;
 }
-const allPosts = await Astro.glob("../pages/posts/*.md");
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
 console.log(allPosts);
 
 function comparePostsByDate(postA: any, postB: any): number {
