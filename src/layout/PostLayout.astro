@@ -12,13 +12,12 @@ import '@/styles/global.css'
   <body>
     <Navigation/>
     <article class="text-center">
-      <p>PostLayout</p>
       <slot/>
     </article>
     <Footer/>
   </body>
 </html>
-<style is:global>
+<style>
   h1, article {
         height: 100%;
         margin: 0;
@@ -71,6 +70,7 @@ article {
   background-color: var(--color-primary);
   border: solid 4px var(--color-accent);
   padding: 26px;
+  margin-top: 40px;
 }
 
 </style>
