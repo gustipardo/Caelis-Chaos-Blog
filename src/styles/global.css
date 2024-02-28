@@ -1,16 +1,16 @@
 
 :root {
-  --color-primary: #F5F0BB;
-  --color-secondary: #C4DFAA;
-  --color-tertiary: #90C8AC;
-  --color-accent: #73A9AD;
+  --background: #d4e9e2;
+  --primary: #006241;
+  --secondary: #1e3932;
+  --accent: #dff9ba;
 }
 html {
   font-family: sans-serif;
 }
 
 body{
-  background-color: var(--color-secondary);
+  background-color: var(--background);
 }
 
 * {
