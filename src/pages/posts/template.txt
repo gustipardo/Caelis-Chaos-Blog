@@ -1,1 +1,13 @@
+---
+layout: "../../layout/PostLayout.astro"
+title: ""
+date: dd/mm/yyyy
+description: ""
+author: ""
+frontImage: "name of the image in public"
 
+---
+# {frontmatter.title}
+
+{frontmatter.description}
+---
