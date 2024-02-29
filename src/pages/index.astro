@@ -1,16 +1,42 @@
 ---
 import "../styles/global.css";
-import Footer from "@/components/Footer.astro";
 import Layout from "@/layout/Layout.astro";
-import BlogPost from "@/components/BlogPost.astro";
-import Header from "@/components/Header.astro";
-import Post from "@/components/Post.astro";
+
 import Download from "@/components/Download.jsx"
+import CastleBarracksTowers from "@/icons/castleBarracksTowers.astro"
+import Title from '@/components/Title.astro'
 
 ---
 <Layout title="Caelis Chaos">
-<Download client:load/>
+    <p class="text">Real-time strategy game for 4 players. A free-for-all where the game is influenced by upgrades and abilities while units act on their own.</p>
+    <div class="castle">
+        <CastleBarracksTowers />
+    </div>
+    <Download client:load/>
+    <Title>Oficial Trailer</Title>
+    <div class="trailer"></div>
+    <Title>Recent Posts</Title>
+    
 </Layout>
 <style>
-
+.text{
+    padding-inline: 35px;
+    font-size: 16px;
+    color: var(--secondary);
+}
+.castle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 304px;
+    height: 304px;
+}
+.trailer{
+    border-radius: 10px;
+    min-width: 90%;
+    max-width: 100%;
+    margin-inline: 35px;
+    aspect-ratio: 16/9;
+    border: 6px solid var(--primary);
+}
 </style>

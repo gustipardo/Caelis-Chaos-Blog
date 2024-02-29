@@ -1,13 +1,12 @@
 
 import { Button } from "antd"
-
+import '@/styles/Download.css'
 
 const Download = () => {
 
     return(
         <>
-         <Button style={{ background: 'green', borderColor: 'green' }} type="primary">Download</Button>
-
+         <Button className="download-button" type="primary">Download</Button>
         </>
     )
 }

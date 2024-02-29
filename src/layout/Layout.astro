@@ -2,6 +2,7 @@
 
 import BlogPost from '@/components/BlogPost.astro';
 import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
 import Navigation from '@/components/Navigation.astro';
 const { title } = Astro.props
 import '@/styles/global.css'
@@ -14,12 +15,12 @@ import '@/styles/global.css'
     <link rel="icon" href="bigbird.jpg" type="image/x-icon">
   </head>
   <body>
-    <Navigation/>
-    <h1 class="dark">{title}</h1>
+
+    <Header>{title}</Header>
     <article class="text-center">
       <slot />
     </article>
-    <Footer/>
+
   </body>
 </html>
 <style>
