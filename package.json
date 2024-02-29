@@ -10,7 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.3.0",
+    "@ant-design/icons": "^5.3.1",
     "@astrojs/mdx": "^2.0.1",
     "@astrojs/react": "^3.0.10",
     "@astrojs/tailwind": "^5.0.3",

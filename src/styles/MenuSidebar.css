@@ -1,0 +1,84 @@
+@keyframes sidebarAppear {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0.8;
+      transform: translateX(145px);
+    }
+  }
+  
+  /* Animación para desaparecer */
+  @keyframes sidebarDisappear {
+    0% {
+      opacity: 0.8;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .sidebar.appear {
+    animation-name: sidebarAppear;
+  }
+  
+  .sidebar.disappear {
+    animation-name: sidebarDisappear;
+  }
+  
+
+.sidebar{
+    background-color: var(--secondary);
+    width: 145px;
+    height: 102vh;
+    position: fixed;
+    top: 0px;
+    right: -12px;
+    top: -9px;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+}
+
+.menu_button{
+    z-index: 100;
+    height: 42px;
+    width: 42px;
+    position: relative;
+}
+
+.container{
+    width: 10px;
+}
+
+
+.sidebar-menu{
+    background-color: var(--secondary);
+    position: relative;
+    top: 72px;
+}
+.menu-item_active{
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+.ant-menu-item{
+    color: var(--accent) !important;
+}
+
+.ant-menu-item-active, .ant-menu-item-selected{
+    color: var(--secondary) !important;
+    background-color: var(--accent) !important;
+}
+.ant-menu-item-active, .ant-menu-item-selected > *{
+    fill: var(--secondary) !important;
+}
+
+.icon{
+    fill: var(--accent);
+}
