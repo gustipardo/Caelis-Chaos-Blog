@@ -4,6 +4,7 @@ import BlogPost from '@/components/BlogPost.astro';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 import Navigation from '@/components/Navigation.astro';
+import Navbar from '@/components/Navbar.astro';
 const { title } = Astro.props
 import '@/styles/global.css'
 ---
@@ -12,10 +13,10 @@ import '@/styles/global.css'
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="@/styles/global.css" />
-    <link rel="icon" href="bigbird.jpg" type="image/x-icon">
+    <link rel="icon" href="castle.png" type="image/x-icon">
   </head>
   <body>
-
+    <Navbar />
     <Header>{title}</Header>
     <article class="text-center">
       <slot />
