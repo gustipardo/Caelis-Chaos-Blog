@@ -1,0 +1,6 @@
+.buttonOutline{
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    border-radius: 3px !important;
+    margin-inline: 8px;
+}

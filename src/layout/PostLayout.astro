@@ -1,6 +1,7 @@
 ---
 import Footer2 from '@/components/Footer2.astro';
 import Navbar from '@/components/Navbar.astro';
+import ButtonOutline from "@/components/ButtonOutline"
 import '@/styles/global.css'
 ---
 <html lang="es">
@@ -15,16 +16,23 @@ import '@/styles/global.css'
     <article class="article">
       <slot/>
     </article>
+    <div class="buttons-container">
+    <ButtonOutline client:load>Previous Post</ButtonOutline>
+    <ButtonOutline client:load>Next Post</ButtonOutline>
+  </div>
     <Footer2 />
   </body>
 </html>
 <style is:global>
+  .buttons-container{
+    text-align: center;
+  }
 .article{
   padding: 20px;
   min-height: 90vh;
 }
 h1,h2,h3,h4,h4,h5,h6{
-  color: var(--secondary);
+  color: var(--primary);
 }
 h1 {
     font-size: 32px;
