@@ -1,16 +1,29 @@
 ---
-interface Props {
-    title: string;
-}
-const {title} = Astro.props
+
 ---
 
-<h1 class="header">{title}</h1>
+<h1 class="header">
+    <slot />    
+</h1>
 
 
 <style>
 .header{ 
-    font-size: 42px;
-    color: brown;
+    font-size: 48px;
+    color: var(--primary);
+    font-family: Sahitya;
+    border-bottom: 2px solid var(--gray);
+    height: 66px;
+    width: fit-content;
+    text-align: center;
+}
+
+.navbar_header{ 
+    font-size: 48px;
+    color: var(--primary);
+    font-family: Sahitya;
+    height: 36px;
+    width: fit-content;
+    text-align: center;
 }
 </style>

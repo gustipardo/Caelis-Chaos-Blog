@@ -1,125 +1,68 @@
 ---
-const platform = "github";
-const username = "gustipardo";
-const today: string = new Date().getFullYear().toString();
+
+
 ---
-
-<footer>
-
-  <div class="links" style="float: left;">
-      <a href="#">Terms of Use</a>
-      <a href="#">Contact</a>
-      <a href="#">Privacy</a>
-  </div>
-
-  <div class="fortress" style="display: inline-block;">
-      <img class="fortress_image" src="/FortressLevel3.png" alt="Logo">
-      <img class="fortress_hero no-hover" src="/tremendinius.png" alt="Bird">
-      <img class="fortress_bird no-hover" src="/BigBird.png" alt="Hero">
-      
-  </div>
-
-  <div class="copyright" style="float: right;">
-      Copyright © 2022-{today} Software - all rights reserved.
-  </div>
-
+<footer class="footer">
+    <div id="container" class="container">
+        <h3 style="font-family: source_serif_pro_bold; font-size: 18px; height: 32px;" class="[grid-area:title]">More from Caelis Chaos:</h3>
+        <ul class="urls [grid-area:left]">
+            <li><a href="/updates">Blog</a></li>
+            <li><a href="/forum">Forum</a></li>
+            <li><a href="/trailer">Oficial Trailer</a></li>
+        </ul>
+        <ul class="moreInfo [grid-area:right]">
+            <li><a href="/privacypolicy">Privacy Policy</a></li>
+            <li><a href="/termsofuse">Terms of Use</a></li>
+            <li><a href="/constact">Contact</a></li>
+        </ul>
+        <p class="copy [grid-area:copy]">Copyright © 2022-2023 Software - all rights reserved.</p>
+    </div>
 </footer>
-
 <style>
-  .copyright{
-    margin-left: 26px;
-    margin-right: 26px;
-  }
-footer{
-  background-color: var(--color-primary);
-  margin-top: 102px;
-  margin-bottom: 26px;
-  max-width: 1000px;
-  border: solid 4px var(--color-accent);
-
-  height: 32px;
-}
-
-footer a {
-  margin-left: 26px;
-  margin-right: 26px;
-
-}
-.fortress{
-position: relative;
-top: -96px;
-}
-.fortress_image{
-  height: 120px;
-  width: 120px;
-}
-
-.fortress_bird{
-  height: 82px;
-  width: 82px;
-  position: relative;
-  top: -188px;
-  visibility: hidden;
-  left: 64px;
-  transition: visibility 6s linear 0s, left 4s;
-}
-.fortress_image:hover ~ .fortress_bird  {
-  visibility: visible;
-  left: 480px;
-  transition-delay: 0s; 
-}
-
-.fortress_hero{
-  transform: scaleX(-1);
-  height: 82px;
-  width: 82px;
-  position: relative;
-  top: -108px;
-  visibility: hidden;
-  left: -64px;
-  transition: visibility 6s linear 0s, left 4s;
-}
-.fortress_image:hover ~ .fortress_hero  {
-  visibility: visible;
-  left: -380px;
-  transition-delay: 0s; 
-}
-.no-hover {
-  pointer-events: none;
-}
-a{
-  color: var(--color-accent);
-  font-weight: 600;
-}
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:active {
-  text-decoration: underline;
-}
-@media (max-width: 960px) {
-  .fortress_image, .fortress {
-    display: none;
-  }
-  footer{
-    height: 80px;
+.footer{
+    width: 100%;
+    height: 160px;
+    background-color: var(--secondary);
     display: flex;
-  }
-  .copyright{
-    margin: 0;
-    height: 64px;
-  }
-  .links{
-    height: 64px;
-  }
+    justify-content: center;
+    color: var(--background) !important;
+    margin-top: 20px;
+}
+#container{
+    font-size: 16px;
+    width: 360px;
+    padding-inline: 26px;
+    padding-top: 6px;
+    background-color: var(--secondary);
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "left right"
+        "copy copy";
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto;
+    }
+
+.urls{
+    font-size: 14px;
+    height: 60px;
+}
+
+.moreInfo{
+    font-size: 12px;
+    right: 100px;
+    text-align: end;
+    height: 60px;
+}
+
+.copy{
+    width: fit-content;
+    text-align: center;
+    font-size: 14px;
+    height: 32px;
+}
+h3{
+    color: var(--background) !important;
 }
 </style>

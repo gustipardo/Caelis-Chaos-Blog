@@ -1,0 +1,56 @@
+---
+import Swords from "@/icons/swords.astro"
+import MenuSidebar from "@/components/MenuSidebar"
+---
+
+<nav class="navbar">
+
+
+    <div class="swords">
+        <Swords/>
+
+
+    <a href="/">
+    <h1 class="navbar_header">Caelis Chaos</h1>
+    </a>
+</div>
+
+
+    <div class="menu">
+        <MenuSidebar client:load />
+    </div>
+</nav>
+<style>
+.menu{
+
+    display: flex;
+    width: 42px;
+}
+.swords{
+    width: fit-content;
+    display: flex;
+}
+.navbar_header{ 
+    font-size: 36px;
+    color: var(--primary);
+    font-family: Sahitya;
+    height: 36px;
+    width: fit-content;
+    text-align: center;
+    display: inline;
+
+    height: 28px;
+
+}
+.navbar{
+    background-color: var(--background);
+    border-bottom: 1px solid var(--gray);
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    max-width: 940px;
+    display: flex;
+  justify-content: space-between;
+}
+</style>

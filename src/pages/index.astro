@@ -1,16 +1,71 @@
 ---
 import "../styles/global.css";
-import Footer from "@/components/Footer.astro";
 import Layout from "@/layout/Layout.astro";
-import BlogPost from "@/components/BlogPost.astro";
-import Header from "@/components/Header.astro";
+
+import ButtonPrimary from "@/components/ButtonPrimary.jsx"
+import CastleBarracksTowers from "@/icons/castleBarracksTowers.astro"
+import Title from '@/components/Title.astro'
+import comparePostsByDate from '@/services/comparePostsByDate'
 import Post from "@/components/Post.astro";
 
-  
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
+
+const sortedPosts = allPosts.sort(comparePostsByDate);
+const firstThreePosts = sortedPosts.slice(0,3)
 ---
 <Layout title="Caelis Chaos">
-
+    <p class="text">Real-time strategy game for 4 players. A free-for-all where the game is influenced by upgrades and abilities while units act on their own.</p>
+    <div class="castle">
+        <CastleBarracksTowers />
+    </div>
+    <ButtonPrimary client:load>Download</ButtonPrimary>
+    <Title>Oficial Trailer</Title>
+    <div class="trailer">We are working on it</div>
+    <Title>Recent Posts</Title>
+    <ul class="list">
+        {
+          firstThreePosts.map((post) => (
+            <Post
+              url={post.url}
+              title={post.frontmatter.title}
+              authors={post.frontmatter.author}
+              date={post.frontmatter.date}
+              description={post.frontmatter.description}
+              frontImage={post.frontmatter.frontImage}
+            />
+          ))
+        }
+      </ul>
 </Layout>
 <style>
+.list{
+    padding-inline: 20px;
+    margin-inline: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    margin-bottom: 20px;
+}
+.text{
+    padding-inline: 35px;
+    font-size: 16px;
+    color: var(--secondary);
+    max-width: 380px;
+}
+.castle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 304px;
+    height: 304px;
+}
+.trailer{
 
+    border-radius: 10px;
+    width: 90vw;
+    max-width: 540px;
+    margin-inline: 35px;
+    aspect-ratio: 16/9;
+    border: 6px solid var(--primary);
+}
 </style>

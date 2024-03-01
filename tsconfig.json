@@ -20,6 +20,9 @@
       "@/icons": [
         "src/icons/*"
       ],
+      "@/services": [
+        "src/services/*"
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

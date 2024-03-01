@@ -1,44 +1,13 @@
 ---
 import "../styles/global.css";
-import Footer from "@/components/Footer.astro";
 import Layout from "@/layout/Layout.astro";
-import BlogPost from "@/components/BlogPost.astro";
-import Header from "@/components/Header.astro";
 import Post from "@/components/Post.astro";
-interface Frontmatter {
-  title: string;
-  date: string;
-  pubDate: string;
-  description: string;
-  author: string;
-  frontImage: string;
-}
+import comparePostsByDate from '@/services/comparePostsByDate'
+import ButtonOutline from "@/components/ButtonOutline"
 
-interface Post {
-  frontmatter: Frontmatter;
-  __usesAstroImage: boolean;
-  url: string;
-  file: string;
-  __esModule: boolean;
-  [Symbol.toStringTag]: string;
-}
 const allPosts = await Astro.glob("../pages/posts/*.mdx");
-console.log(allPosts);
-
-function comparePostsByDate(postA: any, postB: any): number {
-  const dateStringA = postA.frontmatter.date;
-  const dateStringB = postB.frontmatter.date;
-
-  const dateNumberA = parseInt(dateStringA.split('/').reverse().join(''));
-  const dateNumberB = parseInt(dateStringB.split('/').reverse().join(''));
-
-
-  return dateNumberB - dateNumberA;
-}
-
 const sortedPosts = allPosts.sort(comparePostsByDate);
 
-console.log(sortedPosts);
 ---
 <Layout title="Updates">
 
@@ -55,12 +24,23 @@ console.log(sortedPosts);
         />
       ))
     }
+      <ButtonOutline client:load>Load more</ButtonOutline>
   </ul>
+
 </Layout>
 <style>
 	ul{
+    padding-inline: 20px;
 		margin-top: 26px;
 		max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    min-height: 65vh;
 	}
+
 
 </style>
