@@ -6,7 +6,6 @@ import getNextPreviousPost from "@/services/getNextPreviousPost"
 export const ButtonOutline = ({children, isNext=true, sortedPosts}) => {
     const currentPost = getCurrentPost()
     const nextPreviousPost = getNextPreviousPost({isNext , postname: currentPost, sortedPosts})
-    console.log(nextPreviousPost)
     return(
     
         <>

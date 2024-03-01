@@ -1,7 +1,7 @@
 
 
 const getNextPreviousPost = ({isNext=true, postname, sortedPosts} ) => {
-    console.log(sortedPosts)
+
     const currentPostinfo = sortedPosts.find(objeto => objeto.url === `/posts/${postname}`);
     const currentPostDate = currentPostinfo.frontmatter.date
     
