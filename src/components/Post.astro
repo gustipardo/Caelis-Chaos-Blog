@@ -33,12 +33,13 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
     height: 120px;
     background-color: var(--secondary);
     transition: transform 0.3s ease-in-out; /* Agregada transición en el hover */
-    color: var(--accent);
+    color: var(--accent) !important;
     overflow: hidden;
   }
  .title{
   height: 24px;
   overflow: hidden;
+  color: var(--accent) !important;
  }
 
   #descriptionPost {
@@ -84,6 +85,7 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
     margin-left: 8px;
     text-align: left;
     font-size: 14px;
+    color: var(--accent) !important;
   }
 /*
   @media only screen and (max-width: 440px) {
