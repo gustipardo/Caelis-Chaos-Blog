@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import Layout from "@/layout/Layout.astro";
 
-import Download from "@/components/Download.jsx"
+import ButtonPrimary from "@/components/ButtonPrimary.jsx"
 import CastleBarracksTowers from "@/icons/castleBarracksTowers.astro"
 import Title from '@/components/Title.astro'
 import comparePostsByDate from '@/services/comparePostsByDate'
@@ -18,7 +18,7 @@ const firstThreePosts = sortedPosts.slice(0,3)
     <div class="castle">
         <CastleBarracksTowers />
     </div>
-    <Download client:load/>
+    <ButtonPrimary client:load>Download</ButtonPrimary>
     <Title>Oficial Trailer</Title>
     <div class="trailer">We are working on it</div>
     <Title>Recent Posts</Title>

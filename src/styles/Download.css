@@ -4,3 +4,10 @@
     font-family: source_serif_pro;
     margin: 12px;
 }
+
+.download-button:hover{
+    background-color: var(--hover) !important;
+    color: var(--accent) important!;
+    font-family: source_serif_pro;
+    margin: 12px;
+} 
