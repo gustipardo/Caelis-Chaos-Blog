@@ -6,6 +6,11 @@
   font-family: source_serif_pro;
   src: url(./fonts/source_serif_pro/SourceSansPro-Regular.otf);
 }
+@font-face{
+  font-family: source_serif_pro_bold;
+  src: url(./fonts/source_serif_pro/SourceSansPro-Bold.otf);
+}
+
 
 :root {
   --background: #d4e9e2;

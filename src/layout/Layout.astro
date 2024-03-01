@@ -5,6 +5,7 @@ import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 import Navigation from '@/components/Navigation.astro';
 import Navbar from '@/components/Navbar.astro';
+import Footer2 from '@/components/Footer2.astro'
 const { title } = Astro.props
 import '@/styles/global.css'
 ---
@@ -21,7 +22,7 @@ import '@/styles/global.css'
     <article class="text-center">
       <slot />
     </article>
-
+    <Footer2 />
   </body>
 </html>
 <style>

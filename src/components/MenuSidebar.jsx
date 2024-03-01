@@ -42,7 +42,7 @@ const Forum = (
 )
 
 const MenuSidebar = () => {
-  const [isFold, setIsFold] = useState(true);
+  const [isFold, setIsFold] = useState(false);
 
   const handleClick = () => {
     setIsFold(!isFold);
