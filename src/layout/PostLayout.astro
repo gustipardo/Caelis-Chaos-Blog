@@ -4,6 +4,10 @@ import Navbar from '@/components/Navbar.astro';
 import ButtonOutline from "@/components/ButtonOutline"
 import { ViewTransitions } from 'astro:transitions';
 import '@/styles/global.css'
+import comparePostsByDate from '@/services/comparePostsByDate';
+const allPosts = await Astro.glob("../pages/posts/*.mdx");
+const sortedPosts = allPosts.sort(comparePostsByDate);
+console.log(sortedPosts)
 ---
 <html lang="es">
   <head>
@@ -19,8 +23,8 @@ import '@/styles/global.css'
       <slot/>
     </article>
     <div class="buttons-container">
-    <ButtonOutline client:load>Previous Post</ButtonOutline>
-    <ButtonOutline client:load>Next Post</ButtonOutline>
+    <ButtonOutline sortedPosts={sortedPosts} isNext={false} client:only>Previous Post</ButtonOutline>
+    <ButtonOutline sortedPosts={sortedPosts} client:only>Next Post</ButtonOutline>
   </div>
     <Footer/>
   </body>

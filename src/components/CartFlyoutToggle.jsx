@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react';
 import { isCartOpen } from '@/store/cartStore';
 
-export default function CartButton() {
+export const CartButton = () => {
   // lee el valor del store con el hook `useStore`
   const $isCartOpen = useStore(isCartOpen);
   // escribe en el store importado usando `.set`
@@ -9,3 +9,5 @@ export default function CartButton() {
     <button onClick={() => isCartOpen.set(!$isCartOpen)}>Cart</button>
   )
 }
+
+export default CartButton

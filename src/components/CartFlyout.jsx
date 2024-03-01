@@ -1,8 +1,10 @@
 import { useStore } from '@nanostores/react';
 import { isCartOpen } from '@/store/cartStore';
 
-export default function CartFlyout() {
+export const CartFlyout = () => {
   const $isCartOpen = useStore(isCartOpen);
 
-  return $isCartOpen ? <aside>...</aside> : null;
+  return $isCartOpen ? <aside>Si</aside> : <aside>No</aside>;
 }
+
+export default CartFlyout
