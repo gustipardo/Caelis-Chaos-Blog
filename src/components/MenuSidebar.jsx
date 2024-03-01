@@ -2,7 +2,7 @@
 import '@/styles/MenuSidebar.css';
 import { Menu } from 'antd';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 
 const MenuFold = (
@@ -42,30 +42,32 @@ const Forum = (
 )
 
 const MenuSidebar = () => {
+  const currentPage = useRef('/');
   const [isFold, setIsFold] = useState(false);
-
   const handleClick = () => {
     setIsFold(!isFold);
-    console.log(isFold)
+
   };
 
   const handleItemClick = (item) => {
     console.log('Item clickeado:', item);
+    currentPage.current = item;
+    window.location.href = item;
   };
   const items = [
     {
       label: 'Home',
-      key: 'home',
+      key: '/',
       icon: Home,
     },
     {
       label: 'Blog',
-      key: 'blog',
+      key: '/updates',
       icon: Blog,
     },
     {
       label: 'Forum',
-      key: 'forum',
+      key: '/forum',
       icon: Forum,
     },
     {
@@ -82,7 +84,7 @@ const MenuSidebar = () => {
       </button>
 
         <div className={`sidebar ${isFold ? 'disappear' : 'appear'}`}>
-                    <Menu defaultSelectedKeys={'home'} className='sidebar-menu' mode="inline" onClick={({ key }) => handleItemClick(key)} items={items}/>
+                    <Menu defaultSelectedKeys={currentPage.current} className='sidebar-menu' mode="inline" onClick={({ key }) => handleItemClick(key)} items={items}/>
         </div>
 
     </div>

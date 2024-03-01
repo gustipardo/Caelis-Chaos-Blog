@@ -24,12 +24,20 @@ import '@/styles/global.css'
   </body>
 </html>
 <style is:global>
+  body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
   .buttons-container{
     text-align: center;
   }
 .article{
   padding: 20px;
   min-height: 90vh;
+  max-width: 940px;
 }
 h1,h2,h3,h4,h4,h5,h6{
   color: var(--primary);

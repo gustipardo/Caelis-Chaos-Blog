@@ -4,25 +4,31 @@ import MenuSidebar from "@/components/MenuSidebar"
 ---
 
 <nav class="navbar">
+
+
     <div class="swords">
-    <Swords/>
-    </div>
+        <Swords/>
+
+
+    <a href="/">
     <h1 class="navbar_header">Caelis Chaos</h1>
+    </a>
+</div>
+
+
     <div class="menu">
         <MenuSidebar client:load />
     </div>
-
 </nav>
 <style>
 .menu{
-    position: absolute;
-    right: 12px;
+
     display: flex;
     width: 42px;
 }
 .swords{
-    position: absolute;
-    left: 4px;
+    width: fit-content;
+    display: flex;
 }
 .navbar_header{ 
     font-size: 36px;
@@ -32,10 +38,9 @@ import MenuSidebar from "@/components/MenuSidebar"
     width: fit-content;
     text-align: center;
     display: inline;
-    position: absolute;
-    left: 64px;
+
     height: 28px;
-    top: 10px;
+
 }
 .navbar{
     background-color: var(--background);
@@ -44,5 +49,8 @@ import MenuSidebar from "@/components/MenuSidebar"
     height: 72px;
     display: flex;
     align-items: center;
+    max-width: 940px;
+    display: flex;
+  justify-content: space-between;
 }
 </style>

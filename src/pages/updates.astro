@@ -24,8 +24,9 @@ const sortedPosts = allPosts.sort(comparePostsByDate);
         />
       ))
     }
+      <ButtonOutline client:load>Load more</ButtonOutline>
   </ul>
-  <ButtonOutline client:load>Load more</ButtonOutline>
+
 </Layout>
 <style>
 	ul{
@@ -34,6 +35,8 @@ const sortedPosts = allPosts.sort(comparePostsByDate);
 		max-width: 1000px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     margin-bottom: 20px;
     min-height: 65vh;
