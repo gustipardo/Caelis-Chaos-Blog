@@ -1,20 +1,15 @@
 ---
-import Header from "@/components/Header.astro";
 import Layout from "@/layout/Layout.astro";
 ---
 
-<Layout>
-    <Header title="Sorry this page is still in work"/>
+<Layout title="404 Not Found">
+    <div class="notFound">
     <img src="../../hammering.gif"/>
+    </div>
 </Layout>
 <style>
-    :root {
-  --color-primary: #F5F0BB;
-  --color-secondary: #C4DFAA;
-  --color-tertiary: #90C8AC;
-  --color-accent: #73A9AD;
-}
-body{
-    background-color: var(--color-secondary);
+
+.notFound{
+    min-height: 68vh;
 }
 </style>

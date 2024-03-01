@@ -52,7 +52,7 @@ const MenuSidebar = () => {
   const handleItemClick = (item) => {
     console.log('Item clickeado:', item);
     currentPage.current = item;
-    window.location.href = item;
+    history.push(item);
   };
   const items = [
     {
@@ -84,6 +84,7 @@ const MenuSidebar = () => {
       </button>
 
         <div className={`sidebar ${isFold ? 'disappear' : 'appear'}`}>
+          <a href='updates'>updates</a>
                     <Menu defaultSelectedKeys={currentPage.current} className='sidebar-menu' mode="inline" onClick={({ key }) => handleItemClick(key)} items={items}/>
         </div>
 
