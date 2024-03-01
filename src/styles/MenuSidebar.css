@@ -1,11 +1,11 @@
 @keyframes sidebarAppear {
     0% {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(-145px);
     }
     100% {
       opacity: 0.8;
-      transform: translateX(145px);
+      transform: translateX(0px);
     }
   }
   
@@ -13,11 +13,11 @@
   @keyframes sidebarDisappear {
     0% {
       opacity: 0.8;
-      transform: translateX(100px);
+      transform: translateX(0px);
     }
     100% {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(-145px);
     }
   }
   
@@ -36,7 +36,7 @@
     height: 102vh;
     position: fixed;
     top: 0px;
-    right: -12px;
+    right: -145px;
     top: -9px;
     padding: 0;
     margin: 0;
@@ -81,4 +81,52 @@
 
 .icon{
     fill: var(--accent);
+}
+
+@media only screen and (min-width: 940px) {
+  .container{
+
+}
+.menu_button{
+  position: absolute;
+  height: fit-content;
+  top: 18px;
+}
+  .sidebar{
+    width: 180px;
+    height: fit-content;
+    opacity: 1;
+    position: relative;
+    right: 130px;
+    top: 54px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  .sidebar-menu{
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  @keyframes sidebarAppear {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-3044px);
+    }
+  }
+  
+  /* Animación para desaparecer */
+  @keyframes sidebarDisappear {
+    0% {
+      opacity: 1;
+      transform: translateY(-3044px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
