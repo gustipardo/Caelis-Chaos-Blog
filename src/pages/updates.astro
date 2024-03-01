@@ -9,7 +9,7 @@ const allPosts = await Astro.glob("../pages/posts/*.mdx");
 const sortedPosts = allPosts.sort(comparePostsByDate);
 
 ---
-<Layout title="Updates">
+<Layout title="Blog">
 
   <ul>
     {
@@ -24,7 +24,7 @@ const sortedPosts = allPosts.sort(comparePostsByDate);
         />
       ))
     }
-      <ButtonOutline client:load>Load more</ButtonOutline>
+
   </ul>
 
 </Layout>
