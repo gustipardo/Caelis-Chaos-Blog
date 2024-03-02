@@ -2,7 +2,7 @@
 import '@/styles/MenuSidebar.css';
 import { Menu } from 'antd';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 
 const MenuFold = (
@@ -42,7 +42,11 @@ const Forum = (
 )
 
 const MenuSidebar = () => {
-  const currentPage = useRef('/');
+  const currentPath = window.location.href.split('/');
+  const currentUrl = currentPath[currentPath.length - 1];
+
+  const currentOption =`/${currentUrl}`
+  
   const [isFold, setIsFold] = useState(false);
   const handleClick = () => {
     setIsFold(!isFold);
@@ -51,32 +55,26 @@ const MenuSidebar = () => {
 
   const handleItemClick = (item) => {
     console.log('Item clickeado:', item);
-    currentPage.current = item;
-  history.push(item);
-  };
-  const items = [
-    {
-      label: 'Home',
-      key: '/',
-      icon: Home,
-    },
-    {
-      label: 'Blog',
-      key: '/updates',
-      icon: Blog,
-    },
-    {
-      label: 'Forum',
-      key: '/forum',
-      icon: Forum,
-    },
-    {
-      label: 'Trailer',
-      key: 'trailer',
-      icon: Youtube,
-    }
-  ]
 
+  };
+
+
+
+  function getItem(label, key, icon, children, type) {
+    return {
+      key,
+      icon,
+      children,
+      label,
+      type,
+    };
+  }
+  const items = [
+    getItem(<a href='/'>Home</a>, '/', Home),
+    getItem(<a href='/updates'>Blog</a>, '/updates', Blog),
+    getItem(<a href='/forum'>Forum</a>, '/forum', Forum),
+    getItem(<a href='/trailer'>Trailer</a>, '/trailer', Youtube)
+  ];
   return (
     <div className='container'>
       <button className='menu_button' onClick={handleClick}>
@@ -84,7 +82,7 @@ const MenuSidebar = () => {
       </button>
 
         <div className={`sidebar ${isFold ? 'disappear' : 'appear'}`}>
-                    <Menu defaultSelectedKeys={currentPage.current} className='sidebar-menu' mode="inline" onClick={({ key }) => handleItemClick(key)} items={items}/>
+                    <Menu defaultSelectedKeys={currentOption} className='sidebar-menu' mode="inline" onClick={({ key }) => handleItemClick(key)} items={items}/>
         </div>
 
     </div>
