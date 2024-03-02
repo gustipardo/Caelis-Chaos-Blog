@@ -48,9 +48,15 @@ const MenuSidebar = () => {
   const currentOption =`/${currentUrl}`
   
   const [isFold, setIsFold] = useState(false);
+  const [isClick, setIsClick] = useState(false);
+  let isClicked = false
   const handleClick = () => {
     setIsFold(!isFold);
-
+    if(isFold===false){
+      setIsClick(false)
+    } else{
+      setIsClick(true)
+    }
   };
 
   const handleItemClick = (item) => {
@@ -81,7 +87,7 @@ const MenuSidebar = () => {
         {isFold ? MenuUnfold : MenuFold}
       </button>
 
-        <div className={`sidebar ${isFold ? 'disappear' : 'appear'}`}>
+        <div className={`sidebar ${isFold ? 'disappear' : ''} ${isClick ? 'appear' : ''}`}>
                     <Menu defaultSelectedKeys={currentOption} className='sidebar-menu' mode="inline" onClick={({ key }) => handleItemClick(key)} items={items}/>
         </div>
 

@@ -84,9 +84,7 @@
 }
 
 @media only screen and (min-width: 940px) {
-  .container{
 
-}
 .menu_button{
   position: absolute;
   height: fit-content;
@@ -98,7 +96,7 @@
     opacity: 1;
     position: relative;
     right: 130px;
-    top: 54px;
+    top: -200px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
   }
@@ -107,22 +105,22 @@
     border-bottom-right-radius: 12px;
   }
 
-  @keyframes sidebarAppear {
+  @keyframes sidebarDisappear {
     0% {
       opacity: 1;
       transform: translateY(0);
     }
     100% {
       opacity: 1;
-      transform: translateY(-3044px);
+      transform: translateY(240px);
     }
   }
   
   /* Animación para desaparecer */
-  @keyframes sidebarDisappear {
+  @keyframes sidebarAppear {
     0% {
       opacity: 1;
-      transform: translateY(-3044px);
+      transform: translateY(240px);
     }
     100% {
       opacity: 1;
