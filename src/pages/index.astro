@@ -1,12 +1,12 @@
 ---
 import "../styles/global.css";
 import Layout from "@/layout/Layout.astro";
-
 import ButtonPrimary from "@/components/ButtonPrimary.jsx"
 import CastleBarracksTowers from "@/icons/castleBarracksTowers.astro"
 import Title from '@/components/Title.astro'
 import comparePostsByDate from '@/services/comparePostsByDate'
 import Post from "@/components/Post.astro";
+
 
 const allPosts = await Astro.glob("../pages/posts/*.mdx");
 
@@ -16,11 +16,21 @@ const firstThreePosts = sortedPosts.slice(0,3)
 <Layout title="Caelis Chaos">
     <p class="text">Real-time strategy game for 4 players. A free-for-all where the game is influenced by upgrades and abilities while units act on their own.</p>
     <div class="castle">
-        <CastleBarracksTowers />
+      <CastleBarracksTowers />
+      <img src="/Sprites/Knight.webp" class="sprite knight"/>
+      <img src="/Sprites/Bigbird.webp" class="sprite bigbird"/>
+      <img src="/Sprites/archer.webp" class="sprite archer"/>
+      <img src="/Sprites/footman.webp" class="sprite2 footman"/>
+      <img src="/Sprites/Mage.webp" class="sprite2 mage"/>
+      <img src="/Sprites/cannon.webp" class="sprite2 cannon"/>
+
     </div>
+
+
+
     <ButtonPrimary client:load>Download</ButtonPrimary>
     <Title>Oficial Trailer</Title>
-    <div class="trailer">We are working on it</div>
+    <div class="trailer">Coming soon</div>
     <Title>Recent Posts</Title>
     <ul class="list">
         {
@@ -32,10 +42,11 @@ const firstThreePosts = sortedPosts.slice(0,3)
               date={post.frontmatter.date}
               description={post.frontmatter.description}
               frontImage={post.frontmatter.frontImage}
-            />
+             />
           ))
         }
       </ul>
+      
 </Layout>
 <style>
 .list{
@@ -52,6 +63,19 @@ const firstThreePosts = sortedPosts.slice(0,3)
     color: var(--secondary);
     max-width: 380px;
 }
+.trailer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 90vw;
+    max-width: 540px;
+    margin-inline: 35px;
+    aspect-ratio: 16/9;
+    border: 6px solid var(--primary);
+}
+
+
 .castle{
     display: flex;
     justify-content: center;
@@ -59,13 +83,69 @@ const firstThreePosts = sortedPosts.slice(0,3)
     width: 304px;
     height: 304px;
 }
-.trailer{
 
-    border-radius: 10px;
-    width: 90vw;
-    max-width: 540px;
-    margin-inline: 35px;
-    aspect-ratio: 16/9;
-    border: 6px solid var(--primary);
+.sprite {
+  height: 64px;
+  position: absolute;
+  animation: moverIzquierda 8s linear forwards;
+  opacity: 0;
+}
+
+.sprite2 {
+  height: 64px;
+  position: absolute;
+  animation: moverDerecha 8s linear forwards;
+  opacity: 0;
+  transform: scaleX(-1);
+}
+
+.knight{
+  animation-delay: 0.5s;
+}
+.bigbird{
+  
+  animation-delay: 2s;
+}
+.archer{
+  animation-delay: 3s;
+}
+
+.footman{
+  animation-delay: 0.5s;
+}
+
+.mage{
+  animation-delay: 2s;
+}
+
+.cannon{
+  animation-delay: 3s;
+}
+@keyframes moverIzquierda {
+  from {
+    left: 56vw;
+    opacity: 1;
+  }
+  to {
+    left: 90vw;
+    opacity: 1;
+    display: none;
+  }
+}
+@keyframes moverDerecha {
+  from {
+    left: 38vw;
+    opacity: 1;
+  }
+  to {
+    left: 10vw;
+    opacity: 1;
+    display: none;
+  }
+}
+@media screen and (max-width: 940px) {
+  .sprite, .sprite2 {
+    display: none; /* Ocultar sprites en pantallas más pequeñas */
+  }
 }
 </style>

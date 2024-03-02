@@ -3,18 +3,18 @@
 const { title, url, authors, date, description, frontImage } = Astro.props;
 ---
 
-<a id="post" href={url}>
+<a id="post" href={url} transition:name={url} >
   <imagePost id="imagePost" class="[grid-area:imagePost]">
     <img class="imagePost-image" src={`../../${frontImage}`} alt={title} />
   </imagePost>
 
   <headPost id="headPost" class="[grid-area:headPost]">
-    <h1 style="font-size: 16px;" class="text-left title">{title}</h1>
+    <h1 style="font-size: 16px;" class="text-left title" >{title}</h1>
     <p class="text-left posted">Posted by {authors} on {date}</p>
   </headPost>
 
   <descriptionPost id="descriptionPost" class="[grid-area:descriptionPost]">
-    <p class="text-left truncated-text">{description}</p>
+    <p class="text-left truncated-text" >{description}</p>
   </descriptionPost>
 
 </a>
