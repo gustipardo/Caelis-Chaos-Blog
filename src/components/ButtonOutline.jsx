@@ -1,5 +1,6 @@
 import { Button } from "antd"
 import "@/styles/ButtonOutline.css"
+import '@/styles/global.css'
 import getCurrentPost from "@/services/getCurrentPost"
 import getNextPreviousPost from "@/services/getNextPreviousPost"
 

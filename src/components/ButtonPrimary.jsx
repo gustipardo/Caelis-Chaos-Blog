@@ -1,6 +1,7 @@
 
 import { Button } from "antd"
 import '@/styles/Download.css'
+import '@/styles/global.css'
 
 const ButtonPrimary = ({children}) => {
 

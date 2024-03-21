@@ -1,7 +1,7 @@
 import { Button } from "antd"
 import "@/styles/ButtonOutline.css"
 import getCurrentPost from "@/services/getCurrentPost"
-
+import '@/styles/global.css'
 
 export const LoadMore = ({children}) => {
     return(

@@ -1,7 +1,7 @@
 
 import '@/styles/MenuSidebar.css';
 import { Menu } from 'antd';
-
+import '@/styles/global.css'
 import { useState } from 'react';
 
 
