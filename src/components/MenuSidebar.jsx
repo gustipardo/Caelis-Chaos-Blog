@@ -79,7 +79,7 @@ const MenuSidebar = () => {
     getItem(<a href='/'>Home</a>, '/', Home),
     getItem(<a href='/updates'>Blog</a>, '/updates', Blog),
     getItem(<a href='/forum'>Forum</a>, '/forum', Forum),
-    getItem(<a href='/trailer'>Trailer</a>, '/trailer', Youtube)
+    getItem(<a href='https://www.youtube.com/embed/3wMDPq6bHUw'>Trailer</a>, '/trailer', Youtube)
   ];
   return (
     <div className='container'>
