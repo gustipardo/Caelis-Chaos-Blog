@@ -1,12 +1,11 @@
 ---
 import "../styles/global.css";
 import Layout from "@/layout/Layout.astro";
-import ButtonPrimary from "@/components/ButtonPrimary.jsx"
+import ButtonDownload from "@/components/ButtonDownload.jsx"
 import CastleBarracksTowers from "@/icons/castleBarracksTowers.astro"
 import Title from '@/components/Title.astro'
 import comparePostsByDate from '@/services/comparePostsByDate'
 import Post from "@/components/Post.astro";
-
 
 const allPosts = await Astro.glob("../pages/posts/*.mdx");
 
@@ -28,7 +27,8 @@ const firstThreePosts = sortedPosts.slice(0,3)
 
 
 
-    <ButtonPrimary client:load>Download</ButtonPrimary>
+    <ButtonDownload file="Caelis Chaos 0.2.4.exe" client:load>Download</ButtonDownload>
+
     <Title>Oficial Trailer</Title>
     <div class="trailer">
       <iframe width="540" height="292" src="https://www.youtube.com/embed/3wMDPq6bHUw"/>
@@ -150,4 +150,4 @@ const firstThreePosts = sortedPosts.slice(0,3)
     display: none; /* Ocultar sprites en pantallas más pequeñas */
   }
 }
-</style>
+</style>@/components/ButtonDownload.jsx
