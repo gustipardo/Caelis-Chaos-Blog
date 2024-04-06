@@ -3,7 +3,7 @@ import "../styles/global.css";
 import Layout from "@/layout/Layout.astro";
 import Post from "@/components/Post.astro";
 import comparePostsByDate from '@/services/comparePostsByDate'
-import LoadMore from "@/components/Loadmore"
+
 
 const allPosts = await Astro.glob("../pages/posts/*.mdx");
 const sortedPosts = allPosts.sort(comparePostsByDate);

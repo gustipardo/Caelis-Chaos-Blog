@@ -1,4 +1,4 @@
-const downloadFile = async (file) => {
+const downloadFile = async (file:string) => {
     try {
         const response = await fetch(`http://localhost:1234/download/${file}`);
         

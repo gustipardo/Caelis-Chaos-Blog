@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import '@/styles/Download.css';
 import '@/styles/global.css';
-import downloadFile from "@/services/downloadFile";
+import downloadFile from "@/services/downloadFile.ts";
 
 
 const ButtonDownload = ({ children, file }) => {
