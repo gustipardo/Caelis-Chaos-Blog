@@ -13,7 +13,7 @@ const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   const item = items && items[0];
   if (item) {
       const link = document.createElement('a');
-      link.href = `/downloads/${item.key}`;
+      link.href = `/downloads/${item.label}`;
       link.setAttribute('download', item.label);
       document.body.appendChild(link);
       link.click();
@@ -28,7 +28,7 @@ const handleMenuClick: MenuProps['onClick'] = (e) => {
   const item = items.find(item => item.key === e.key);
   if (item) {
       const link = document.createElement('a');
-      link.href = `/downloads/${item.key}`;
+      link.href = `/downloads/${item.label}`;
       link.setAttribute('download', item.label);
       document.body.appendChild(link);
       link.click();
@@ -39,7 +39,7 @@ const handleMenuClick: MenuProps['onClick'] = (e) => {
 
 const items: Item[] = [
   {
-    label: 'Caelis Chaos 0.2.4',
+    label: 'Caelis Chaos 0.2.4.exe',
     key: '0'
   },
 

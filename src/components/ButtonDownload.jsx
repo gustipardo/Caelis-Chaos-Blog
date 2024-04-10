@@ -8,7 +8,7 @@ const ButtonDownload = ({ children, file }) => {
     return (
         <>
             <Button className="download-button" type="primary">
-                <a href={`/downloads/${file}`} download>{children}</a>
+                <a href={`/downloads/${file}`} download={file}>{children}</a>
             </Button>
         </>
     );
