@@ -39,9 +39,13 @@ const handleMenuClick: MenuProps['onClick'] = (e) => {
 
 const items: Item[] = [
   {
-    label: 'Caelis Chaos 0.2.4.exe',
+    label: 'Caelis_Chaos_0.3.0.rar',
     key: '0'
   },
+  {
+    label: 'Caelis Chaos 0.2.4.exe',
+    key: '1'
+  }
 
 ];
 
