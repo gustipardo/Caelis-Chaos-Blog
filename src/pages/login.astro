@@ -16,15 +16,21 @@ console.log(session)
                 <p>Hola, {session.user?.name}</p>
                 <button id="logout">Logout</button>
             </div>
-        ) :    <button id="login">Login</button>
+        ) : (
+            <button id="login-github">Login Github</button>
+            <button id="login-twitch">Login Twitch</button>
+        )
     }
-
-
 </Layout>
 <script>
     const { signIn, signOut } = await import("auth-astro/client")
-    const login = document.querySelector("#login") as HTMLElement
+    const loginTwitch = document.querySelector("#login-twitch") as HTMLElement
+    const loginGithub = document.querySelector("#login-github") as HTMLElement
     const logout =  document.querySelector("#logout") as HTMLElement
-    if(login) login.onclick = () => signIn("twitch")
+
+    if(loginTwitch) loginTwitch.onclick = () => signIn("twitch")
+    if(loginGithub) loginGithub.onclick = () => signIn("github")
     if(logout) logout.onclick = () => signOut()
+
+
 </script>
