@@ -1,0 +1,30 @@
+---
+import Layout from "@/layout/Layout.astro";
+import '@/styles/global.css'
+import { SignIn, SignOut } from 'auth-astro/components'
+import { getSession } from 'auth-astro/server';
+
+const session = await getSession(Astro.request)
+console.log(session)
+---
+
+<Layout title="Log In">
+    <div>Hola esta es la pagina para inciar sesion</div>
+    {
+        session ? (
+            <div>
+                <p>Hola, {session.user?.name}</p>
+                <button id="logout">Logout</button>
+            </div>
+        ) :    <button id="login">Login</button>
+    }
+
+
+</Layout>
+<script>
+    const { signIn, signOut } = await import("auth-astro/client")
+    const login = document.querySelector("#login") as HTMLElement
+    const logout =  document.querySelector("#logout") as HTMLElement
+    if(login) login.onclick = () => signIn("twitch")
+    if(logout) logout.onclick = () => signOut()
+</script>
