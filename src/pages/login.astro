@@ -19,6 +19,7 @@ console.log(session)
         ) : (
             <button id="login-github">Login Github</button>
             <button id="login-twitch">Login Twitch</button>
+            <button id="login-google">Login Google</button>
         )
     }
 </Layout>
@@ -26,8 +27,10 @@ console.log(session)
     const { signIn, signOut } = await import("auth-astro/client")
     const loginTwitch = document.querySelector("#login-twitch") as HTMLElement
     const loginGithub = document.querySelector("#login-github") as HTMLElement
+    const loginGoogle = document.querySelector("#login-google") as HTMLElement
     const logout =  document.querySelector("#logout") as HTMLElement
 
+    if(loginGoogle) loginGoogle.onclick = () => signIn("google")
     if(loginTwitch) loginTwitch.onclick = () => signIn("twitch")
     if(loginGithub) loginGithub.onclick = () => signIn("github")
     if(logout) logout.onclick = () => signOut()
