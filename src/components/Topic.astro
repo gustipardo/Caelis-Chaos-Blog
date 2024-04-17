@@ -1,0 +1,81 @@
+---
+import '@/styles/global.css'
+import Comments from '@/icons/Comments.astro';
+const { title, url, authors, date, description, frontImage } = Astro.props;
+---
+<div class="container">
+<a href={url} transition:name={url} >
+    <img class="image" src={`../../${frontImage}`} alt={title} />
+    <h1 class="title margin-left">{title} asdas asdsa asdasd asdas dasdsa</h1>
+    <p class="last-reply margin-left">Last reply from @tobiasbersia 5 min ago  </p>
+    <p class="comments-quantity margin-left">33 Comments</p>
+    <button class="comments-button"><Comments/> </button>
+</a>
+</div>
+<style>
+    .container{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .container > a {
+            border-radius: 12px;
+            display: grid;
+            grid-template-areas:
+                "image title title"
+                "image last-reply last-reply"
+                "image comments-quantity comments-button";
+            grid-template-columns: 94px auto;
+            grid-template-rows: 31px;
+            grid-gap: 5px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            max-width: 680px;
+            background-color: var(--secondary);
+            color: var(--accent);
+            text-align: left;
+        }
+
+        .container > a > img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image {
+            border-radius: 100%;
+            border: 4px solid var(--accent);
+            grid-area: image;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+
+        }
+
+        .title {
+            min-width: 280px;
+            overflow: hidden;
+            grid-area: title;
+            font-size: 18px;
+            color: var(--accent) !important;
+        }
+
+        .last-reply {
+            overflow: hidden;
+            font-size: 14px;
+            grid-area: last-reply;
+        }
+
+        .comments-quantity {
+            grid-area: comments-quantity;
+        }
+
+        .comments-button {
+            grid-area: comments-button;
+        }
+        .margin-left{
+            margin-left: 8px;
+        }
+</style>
