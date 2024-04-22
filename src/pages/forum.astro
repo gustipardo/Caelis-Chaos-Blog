@@ -3,14 +3,54 @@ import "../styles/global.css";
 import Layout from "@/layout/Layout.astro";
 import Topic from "@/components/Topic.astro";
 import comparePostsByDate from '@/services/comparePostsByDate'
-
+import getUserUuid from '@/services/getUserUuid'
+import getAllTopics from '@/services/getAllTopics'
+import getTopicById from '@/services/getTopicById'
+import creatNewTopic from '@/services/creatNewTopic'
+import addNewResponse from '@/services/addNewResponse'
+import { getSession } from 'auth-astro/server';
 
 const allPosts = await Astro.glob("../pages/posts/*.mdx");
 const sortedPosts = allPosts.sort(comparePostsByDate);
 
+const session = await getSession(Astro.request)
+console.log(session)
+
+const topics = await getAllTopics()
+console.log(topics)
+/* 
+const userUuid = await getUserUuid({id: '4', provider: 'twitch'})
+console.log(userUuid)
+
+const topicId = [topics[0].topic_id]
+console.log(topicId[0])
+const topicById = await getTopicById({topicId})
+console.log(topicById)
+
+const title = 'New topic title'
+const authorId = topicById[0].author_id
+const content = 'A content for a topic example'
+console.log(authorId)
+
+const CreateNewTopic = await creatNewTopic({title, authorId, content})
+console.log(CreateNewTopic)
+
+const response = 'Hello here is a response'
+const AddNewResponse = await addNewResponse({ topicId: '6', authorId, content: response })
+console.log(AddNewResponse) 
+*/
 ---
 <Layout title="Forum">
   <ul>
+    {
+      topics.map((topic: any) => (
+        <p>{topic.title}</p>
+        <p>{topic.author_id}</p>
+      ))
+    }
+
+  </ul>
+<!--   <ul>
     {
       sortedPosts.map((post) => (
         <Topic
@@ -24,7 +64,7 @@ const sortedPosts = allPosts.sort(comparePostsByDate);
       ))
     }
 
-  </ul>
+  </ul> -->
 </Layout>
 <style>
 /* 	ul{
