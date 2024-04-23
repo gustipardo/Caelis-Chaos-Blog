@@ -1,0 +1,58 @@
+---
+layout: "../../layout/PostLayout.astro"
+title: "A big release!"
+date: 23/04/2024
+description: ""
+author: "Tobias"
+frontImage: "/postname/Katyusha.png"
+
+---
+# {frontmatter.title}
+
+{frontmatter.description}
+---
+
+<br />
+Hello everyone! As you probably know, version 0.3.0 has been released. If you played 0.2.4 or prior, you'll notice lots of changes. The biggest one is probably 
+the UI, you are now greeted by a menu instead of a console! <br /><br />
+
+![altimage](/postname/MainMenu.png)
+
+It's still very barebones, but a simple menu is better than no menu. Since I'm making the UI library from scratch instead of using something premade, you'll 
+likely see improvements over time with never releases. (0.3.1 is already around the corner and it comes with some small improvements.). But the main menu is
+not the only piece of UI that you'll see, as 0.3.0 comes with things like match lobby, settings menu, in game menu, and even UI to control your buildings.
+That means using hotkeys to play is no longer mandatory! <br /><br />
+
+![altimage](/postname/InGame UI.png)
+
+Talking about in-game stuff, once you start your first match you'll be surprised by the amount of things that have changed there. To start with, all the sprites
+from units to buildings and even projectiles have been replaced with newer and prettier pixelart ones. They're most probably not going to be the final ones, but
+hey, it's a step forward and they look much better. There's a joke I like to say when comparing 0.3.0 and 0.2.4 visuals, "We've evolved from 8-bit game to a half-baked flash
+game." <br /><br />
+
+Visuals are not the only aspect that has changed of the game. Some new mechanics have been introduce to further enhance gameplay, and some are there in the works.
+One the big ones is splash damage. Mages and Cannons now deal splash damage that can be devastating against groups of units. You know those deathballs of piled units
+that everyone used to send in 0.2.4? Well, they would get obliterated after 1 o 2 cannonballs. Obviously, splash damage became too overpowered when units just stack
+on one another, that's why the only sound adition after splash damage was collisions. It took me a bit to work around it, and I'd say it still isn't very good,
+but I managed to make a simple AABB collision system so units would no longer stack with others. They now go like this (their hitboxes are visible when you press F3). <br /><br />
+
+![altimage](/postname/Hitboxes.png)
+
+Several Quality of Life improvements have also made it's way into 0.3.0. Things like fullscreen mode and support for different resolutions were a must.
+But also things like being able to restart a match without having to reopen the game, or the possibility to join another multiplayer game without the game closing.
+Those are things that we take as granted when playing games. It's kind obvious when you think about it, but as this is my first gamedev experience,
+I had that moment of "Wait, I have to actually add that in the game.". As all the test matches were hosted by me (at least the one I'm aware), I added the
+capability for the game to remember the last IP you've connected to, so you don't have to write it everytime you want to join your friend (as long as his IP doesn't change). <br /><br />
+
+One final thing to note is our new hero, Katyusha! In constrast to Tremendinius, she has a ranged attack, a very high fire rate and not so high HP, making her good
+at rapidly depleting tanky units health bars like those of Knights or Birds. You'll notice that the Gatling Gun Tank from 0.2.4 has disappeared in favor of Katyusha,
+but don't worry, as we're planning for it to make a comeback as something different than a hero. <br /><br />
+
+![altimage](/postname/Katyusha.png)
+
+And, that's all for this one. I've made a new trailer to show most of the 0.3.0 aditions in a more visual way and obviously the new version is available for download
+in our webpage and our discord. Hope you enjoy this big update and see you next time! <br /><br />
+
+https://www.youtube.com/watch?v=5RIi8KBs2sY
+
+PD: Gusti has been working hard on the website these days, so we may have a working forum soon.
