@@ -2,72 +2,41 @@
 import "../styles/global.css";
 import Layout from "@/layout/Layout.astro";
 import Topic from "@/components/Topic.astro";
-import comparePostsByDate from '@/services/comparePostsByDate'
-import getUserUuid from '@/services/getUserUuid'
-import getAllTopics from '@/services/getAllTopics'
-import getTopicById from '@/services/getTopicById'
-import creatNewTopic from '@/services/creatNewTopic'
-import addNewResponse from '@/services/addNewResponse'
 import { getSession } from 'auth-astro/server';
-
-const allPosts = await Astro.glob("../pages/posts/*.mdx");
-const sortedPosts = allPosts.sort(comparePostsByDate);
 
 const session = await getSession(Astro.request)
 console.log(session)
 
-const topics = await getAllTopics()
-console.log(topics)
-/* 
-const userUuid = await getUserUuid({id: '4', provider: 'twitch'})
-console.log(userUuid)
+const getTopicsCards = async () => {
+    const res = await fetch('http://localhost:1234/forum/topicscards');
+    const data = await res.json(); 
+    return data;
+}
 
-const topicId = [topics[0].topic_id]
-console.log(topicId[0])
-const topicById = await getTopicById({topicId})
-console.log(topicById)
+const TopicsCards = await getTopicsCards()
+console.log(TopicsCards)
 
-const title = 'New topic title'
-const authorId = topicById[0].author_id
-const content = 'A content for a topic example'
-console.log(authorId)
-
-const CreateNewTopic = await creatNewTopic({title, authorId, content})
-console.log(CreateNewTopic)
-
-const response = 'Hello here is a response'
-const AddNewResponse = await addNewResponse({ topicId: '6', authorId, content: response })
-console.log(AddNewResponse) 
-*/
 ---
 <Layout title="Forum">
+
   <ul>
-    {
-      topics.map((topic: any) => (
-        <p>{topic.title}</p>
-        <p>{topic.author_id}</p>
-      ))
-    }
+          {
 
-  </ul>
-<!--   <ul>
-    {
-      sortedPosts.map((post) => (
-        <Topic
-          url={post.url}
-          title={post.frontmatter.title}
-          authors={post.frontmatter.author}
-          date={post.frontmatter.date}
-          description={post.frontmatter.description}
-          frontImage={post.frontmatter.frontImage}
+            TopicsCards.map((topic: any) => (
+          <Topic
+          url=`/forum/${topic.topic_id}`
+          title={topic.title}
+          authors={topic.author_username}
+          creation_time={topic.creation_time}
+          frontImage={topic.author_image}
+          response_count={topic.response_count}
           />
-      ))
-    }
-
-  </ul> -->
+            ))
+          }
+  </ul>
 </Layout>
 <style>
-/* 	ul{
+	ul{
     padding-inline: 20px;
 		max-width: 1000px;
     display: flex;
@@ -78,6 +47,6 @@ console.log(AddNewResponse)
     min-height: 66vh;
 
 	}
- */
+
 
 </style>

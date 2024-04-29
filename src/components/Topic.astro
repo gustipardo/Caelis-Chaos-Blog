@@ -1,15 +1,19 @@
 ---
 import '@/styles/global.css'
 import Comments from '@/icons/Comments.astro';
-const { title, url, authors, date, description, frontImage } = Astro.props;
+import getTimeElapsed from '@/services/getTimeElapsed';
+
+const { title, url, authors, creation_time, response_count, frontImage } = Astro.props;
+
+    const timeElapsed = getTimeElapsed(creation_time)
 ---
 <div class="container">
-<a href={url} transition:name={url} >
-    <img class="image" src={`../../${frontImage}`} alt={title} />
-    <h1 class="title margin-left">{title} asdas asdsa asdasd asdas dasdsa</h1>
-    <p class="last-reply margin-left">Last reply from @tobiasbersia 5 min ago  </p>
-    <p class="comments-quantity margin-left">33 Comments</p>
-    <button class="comments-button"><Comments/> </button>
+<a href={url} >
+    <img class="image" src={frontImage} alt={title} />
+    <h1 class="title margin-left">{title}</h1>
+    <p class="last-reply margin-left">Created by @{authors} {timeElapsed} ago</p>
+    <p class="comments-quantity margin-left">{response_count} Comments</p>
+    <div class="comments-button"><Comments/></div>
 </a>
 </div>
 <style>
@@ -38,6 +42,7 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
             background-color: var(--secondary);
             color: var(--accent);
             text-align: left;
+
         }
 
         .container > a > img {
@@ -51,7 +56,6 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
             grid-area: image;
             height: 100%;
             aspect-ratio: 1 / 1;
-
         }
 
         .title {
@@ -73,7 +77,11 @@ const { title, url, authors, date, description, frontImage } = Astro.props;
         }
 
         .comments-button {
+            display: flex;
             grid-area: comments-button;
+            align-items: end;
+            flex-direction: column;
+
         }
         .margin-left{
             margin-left: 8px;
