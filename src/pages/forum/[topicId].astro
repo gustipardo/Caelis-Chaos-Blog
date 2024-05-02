@@ -1,14 +1,53 @@
 ---
+import '@/styles/global.css'
+import Response from "@/components/Response.astro";
 import Layout from "@/layout/Layout.astro"
 
 const {topicId} = Astro.params
+console.log(topicId)
+const getTopicById = async ({id} : {id: string | undefined}) => {
+    const res = await fetch(`http://localhost:1234/forum/${id}`);
+    const data = await res.json(); 
+    return data;
+}
 
+const getResponsesById = async ({id} : {id: string | undefined}) => {
+    const result = await fetch(`http://localhost:1234/forum/response/${id}`);
+    const data = await result.json(); 
+    return data;
+}
+
+const Responses = await getResponsesById({id: topicId})
+console.log(Responses)
+
+const Topic = await getTopicById({id: topicId})
+console.log(Topic)
 
 
 ---
 
-<Layout title="Forum">
+<Layout title={Topic.title}>
 
-    <p>hola, {topicId}</p>
+    <img class="image" src={Topic.author_image} alt={Topic.author_username} />
+    <p>{Topic.author_username}</p>
+    <p>{Topic.content}</p>
+    { 
+    Responses.map((response: any)=> (
+    <Response 
+    imageSrc={response.author_image} 
+    username={response.author_username}  
+    content={response.content}  
+    quote='0' />
+    ))
+    }
 
 </Layout>
+<style>
+            .image {
+            border-radius: 100%;
+            border: 4px solid var(--accent);
+            grid-area: image;
+            height: 100px;
+            aspect-ratio: 1 / 1;
+        }
+</style>
