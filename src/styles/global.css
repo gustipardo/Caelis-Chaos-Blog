@@ -1,29 +1,27 @@
-@font-face{
+@font-face {
   font-family: Sahitya;
-  src: url(./fonts/sahitya/Sahitya-Regular.ttf)
+  src: url(./fonts/sahitya/Sahitya-Regular.ttf);
 }
-@font-face{
+@font-face {
   font-family: source_serif_pro;
   src: url(./fonts/source_serif_pro/SourceSansPro-Regular.otf);
 }
-@font-face{
+@font-face {
   font-family: source_serif_pro_bold;
   src: url(./fonts/source_serif_pro/SourceSansPro-Bold.otf);
 }
-
 
 :root {
   --background: #d4e9e2;
   --primary: #006241;
   --secondary: #1e3932;
   --accent: #dff9ba;
-  --gray: #9FAFA9;
-  --hover: #058d5f; 
+  --gray: #9fafa9;
+  --hover: #058d5f;
 }
 
-body{
+body {
   background-color: var(--background);
-
 }
 /*
 html {
@@ -72,7 +70,6 @@ hr {
 
 h1 {
   font-size: 32px;
-
 }
 
 h2 {

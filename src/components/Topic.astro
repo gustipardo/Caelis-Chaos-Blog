@@ -7,7 +7,7 @@ const { title, url, authors, creation_time, response_count, frontImage } = Astro
 
     const timeElapsed = getTimeElapsed(creation_time)
 ---
-<div class="container">
+<div class="container-topics">
 <a href={url} >
     <img class="image" src={frontImage} alt={title} />
     <h1 class="title margin-left">{title}</h1>
@@ -17,14 +17,13 @@ const { title, url, authors, creation_time, response_count, frontImage } = Astro
 </a>
 </div>
 <style>
-    .container{
-        margin-top: 20px;
+    .container-topics{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-        .container > a {
+        .container-topics > a {
             border-radius: 12px;
             display: grid;
             grid-template-areas:
@@ -45,7 +44,7 @@ const { title, url, authors, creation_time, response_count, frontImage } = Astro
 
         }
 
-        .container > a > img {
+        .container-topics > a > img {
             max-width: 100%;
             height: auto;
         }
