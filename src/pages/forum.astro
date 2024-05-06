@@ -3,22 +3,22 @@ import "../styles/global.css";
 import Layout from "@/layout/Layout.astro";
 import Topic from "@/components/Topic.astro";
 import { getSession } from 'auth-astro/server';
+import getTopicsCards from "@/services/getTopicsCards";
+import  AntAnchor from "@/components/AntAnchor";
 
 const session = await getSession(Astro.request)
 console.log(session)
 
-const getTopicsCards = async () => {
-    const res = await fetch('http://localhost:1234/forum/topicscards');
-    const data = await res.json(); 
-    return data;
-}
-
 const TopicsCards = await getTopicsCards()
 console.log(TopicsCards)
 
+
 ---
 <Layout title="Forum">
-
+  <div class="buttons-container">
+    <AntAnchor route="/forum/CreateNewTopic" client:load>Create new topic</AntAnchor>
+    <AntAnchor route="/forum/CreateNewTopic" client:load>Create new topic</AntAnchor>
+  </div>
   <ul>
           {
 
@@ -36,17 +36,34 @@ console.log(TopicsCards)
   </ul>
 </Layout>
 <style>
+  .create-new-topic{
+    background-color: var(--primary);
+    font-family: source_serif_pro;
+    margin: 12px;
+}
+.create-new-topic:hover{
+    background-color: var(--hover) !important;
+    color: var(--accent) important!;
+    font-family: source_serif_pro;
+    margin: 12px;
+} 
 	ul{
     padding-inline: 20px;
-		max-width: 1000px;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 28px;
     margin-bottom: 20px;
     min-height: 66vh;
 
 	}
 
+  .buttons-container{
+    padding-inline: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 
 </style>
