@@ -5,7 +5,9 @@ import { SignIn, SignOut } from 'auth-astro/components'
 import { getSession } from 'auth-astro/server';
 
 const session = await getSession(Astro.request)
-console.log(session?.user?.id)
+/* console.log(session)
+console.log(session.provider)
+console.log(session?.user?.id) */
 
 
 ---

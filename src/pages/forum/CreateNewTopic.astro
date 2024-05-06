@@ -2,85 +2,17 @@
 import '@/styles/global.css'
 import Layout from "@/layout/Layout.astro";
 import NewTopic from '@/components/NewTopic.jsx'
+import { getSession } from 'auth-astro/server';
+import getUserUuid from '@/services/getUserUuid';
+const session = await getSession(Astro.request)
+console.log(session)
 
-const postNewTopic = async () => {
-    try {
-      const response = await fetch("http://localhost:1234/forum/response", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            topicId: "10",
-            authorId: "8430dede-d0c8-41bc-828b-39151afa127c",
-            content: "I test",
-            quoted_response_id: "13"
-        }),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Nuevo tema creado:", data);
-      } else {
-        console.error("Error al crear el nuevo tema:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error al realizar la solicitud:", error);
-    }
-  };
-
-  const hola = await postNewTopic()
-console.log(hola)
-
+const userUUID = await getUserUuid({id: session?.user?.id, provider: 'twitch'})
+console.log(userUUID)
 ---
 
 
 <Layout title="New Topic">
-    <button data-button>
-    asdsa
-  </button>
-    <NewTopic client:load/>
+
+    <NewTopic user_id={userUUID} client:load/>
 </Layout>
-
-<script>
-    const buttons = document.querySelectorAll('[data-button]');
-
-    const postNewTopic = async () => {
-    try {
-      const response = await fetch("http://localhost:1234/forum/response", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            topicId: "10",
-            authorId: "8430dede-d0c8-41bc-828b-39151afa127c",
-            content: "I test",
-            quoted_response_id: "13"
-        }),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Nuevo tema creado:", data);
-      } else {
-        console.error("Error al crear el nuevo tema:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error al realizar la solicitud:", error);
-    }
-  };
-
-  const getTopicsCards = async () => {
-    const res = await fetch('http://localhost:1234/forum/topicscards');
-    const data = await res.json(); 
-    return data;
-}
-
-buttons.forEach((button) => {
-  button.addEventListener('click', async () => {
-    const TopicsCards = await getTopicsCards()
-    console.log(TopicsCards)
-
-    console.log('hola')
-  });
-});
-</script>
