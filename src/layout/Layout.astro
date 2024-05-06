@@ -11,13 +11,13 @@ import '@/styles/global.css'
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="@/styles/global.css" />
-    <link rel="icon" href="castleIcon.png" type="image/x-icon">
+<!--     <link rel="icon" href="castleIcon.png" type="image/x-icon"> -->
     <ViewTransitions />
   </head>
   <body>
     <Navbar />
-    <Header>{title}</Header>
-    <article class="text-center">
+    {title && <Header>{title}</Header>}
+    <article class="text-center article">
       <slot />
     </article>
     <Footer />
@@ -58,13 +58,17 @@ import '@/styles/global.css'
   font-size: 2.5rem;
 
 }
-
+.article{
+  padding-bottom: 160px;
+}
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 0;
+  position: relative;
+  min-height: 100vh;
 }
 
 </style>
