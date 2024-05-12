@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import "@/styles/NewTopic.css";
+import { Button } from "antd";
 
 const NewTopicForm = ({ user_id }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
+  const [isSuccess, setIsSuccess] = useState(false);
   const postNewTopic = async () => {
     try {
       const response = await fetch("http://localhost:1234/forum/topic", {
@@ -19,35 +21,49 @@ const NewTopicForm = ({ user_id }) => {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log("Nuevo tema creado:", data);
+        console.log("New Topic added:", data);
+        setIsSuccess(true);
       } else {
-        console.error("Error al crear el nuevo tema:", response.statusText);
+        console.error("Error adding a new Topic:", response.statusText);
       }
     } catch (error) {
-      console.error("Error al realizar la solicitud:", error);
+      console.error("Error posting the request:", error);
+    }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await postNewTopic();
+    } catch (error) {
+      console.error("Error posting the request:", error);
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await postNewTopic();
-  };
+  React.useEffect(() => {
+    if (isSuccess) {
+      window.location.href = "/forum";
+    }
+  }, [isSuccess]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Title</label>
+    <form className="form" onSubmit={handleSubmit}>
+      <label className="label">Topic title</label>
       <input
+        className="input input-title"
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label>Content</label>
+      <label className="label">Content</label>
       <input
+        className="input input-content"
         type="text"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
-      <button type="submit">Submit</button>
+      <Button className="submit" type="submit" htmlType="submit">
+        Submit
+      </Button>
     </form>
   );
 };

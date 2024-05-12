@@ -7,12 +7,21 @@ import getUserUuid from '@/services/getUserUuid';
 const session = await getSession(Astro.request)
 console.log(session)
 
-const userUUID = await getUserUuid({id: session?.user?.id, provider: 'twitch'})
-console.log(userUUID)
+const userId = session?.user?.id
 ---
 
 
 <Layout title="New Topic">
-
-    <NewTopic user_id={userUUID} client:load/>
+    <NewTopic user_id={userId} client:load/>
 </Layout>
+<style>
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  margin: 0;
+  position: static;
+  min-height: 10vh;
+}
+</style>
