@@ -1,13 +1,20 @@
 ---
+import getResponseContentById from '@/services/getResponseContentById';
 import '@/styles/global.css'
 const { imageSrc, username, content, quote } = Astro.props;
 console.log(imageSrc, username, content, quote)
+let quoteContent = ''
+if(quote){
+    console.log(quote)
+    const quoteFetching = await getResponseContentById({quote})
+    quoteContent = quoteFetching.content
+}
 ---
 
 <div class="">
 <img class="image" src={imageSrc} alt={username} />
 <p>{username}</p>
-<p>Quote: {quote}</p>
+{quoteContent && <p class="quote">"{quoteContent}"</p>}
 <p>{content}</p>
 
 </div>
@@ -18,5 +25,8 @@ console.log(imageSrc, username, content, quote)
             grid-area: image;
             height: 100px;
             aspect-ratio: 1 / 1;
+        } 
+        .quote{
+            background-color: var(--accent);
         }
 </style>
