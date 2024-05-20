@@ -1,0 +1,32 @@
+.response-input {
+  width: 100%;
+  min-height: 32px;
+  height: fit-content;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid var(--gray);
+  padding: 12px;
+  color: var(--secondary);
+}
+
+.submit {
+  background-color: var(--primary);
+  font-family: source_serif_pro;
+  margin: 12px;
+  color: var(--background);
+}
+
+.submit:hover {
+  background-color: var(--hover) !important;
+  color: var(--accent) important!;
+  font-family: source_serif_pro;
+  margin: 12px;
+}
+
+.buttonOutline {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  border-radius: 3px !important;
+  margin-inline: 8px;
+  width: fit-content;
+}
