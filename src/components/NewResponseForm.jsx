@@ -1,11 +1,15 @@
 import React, { useState, useRef } from "react";
 import "@/styles/NewResponseForm.css";
 import { Button } from "antd";
+import { useResponseStore } from "@/store/Respose";
 
 const NewResponseForm = ({ user_id, topicId }) => {
   const [value, setValue] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const textareaRef = useRef(null);
+  const response_id = useResponseStore((state) => state.response_id);
+  const content = useResponseStore((state) => state.content);
+  const username = useResponseStore((state) => state.username);
 
   const textAreaAdjust = (element) => {
     element.style.height = "1px";
@@ -35,6 +39,14 @@ const NewResponseForm = ({ user_id, topicId }) => {
 
   const postNewResponse = async () => {
     try {
+
+      console.log("Submitting new response with values:", {
+        topicId,
+        authorId: user_id,
+        content: value,
+        quoted_response_id: response_id
+      });
+
       const response = await fetch("http://localhost:1234/forum/response", {
         method: "POST",
         headers: {
@@ -44,7 +56,9 @@ const NewResponseForm = ({ user_id, topicId }) => {
           topicId: topicId,
           authorId: user_id,
           content: value,
+          quoted_response_id: response_id
         }),
+
       });
       if (response.ok) {
         const data = await response.json();
@@ -61,12 +75,13 @@ const NewResponseForm = ({ user_id, topicId }) => {
   React.useEffect(() => {
     if (isSuccess) {
       /* Reload page after a successful response submission */
-      window.location.reload();
+      // window.location.reload();
     }
   }, [isSuccess]);
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      {response_id && <p id="responseQuoted" className="responseQuoted">@{username} wrote: {content}</p>}
       <textarea
         ref={textareaRef}
         value={value}

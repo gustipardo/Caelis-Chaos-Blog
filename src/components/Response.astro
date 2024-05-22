@@ -1,7 +1,8 @@
 ---
 import getResponseContentById from '@/services/getResponseContentById';
 import '@/styles/global.css'
-const { imageSrc, username, content, quote } = Astro.props;
+import { ResponseReply } from './ResponseReply';
+const { imageSrc, username, content, quote, response_id } = Astro.props;
 console.log(imageSrc, username, content, quote)
 let quoteContent = ''
 if(quote){
@@ -15,8 +16,10 @@ if(quote){
     <div class="user-profile">
         <img class="image" src={imageSrc} alt={username} />
         <p class="user-info">@{username}</p>
+        <p>a{response_id}</p>
+        <ResponseReply response_id={response_id} content={content} username={username} client:load/>
     </div>
-{quoteContent && <p class="quote">"{quoteContent}"</p>}
+{quoteContent && <p class="quote">@{username} wrote: {quoteContent}</p>}
 <p>{content}</p>
 
 </div>
@@ -32,6 +35,15 @@ if(quote){
         .quote{
             background-color: var(--accent);
             width: fit-content;
+            background-color: var(--accent); /* Color de fondo para resaltar la cita */
+            border-left: 4px solid var(--gray); /* Línea vertical a la izquierda */
+            padding: 10px; /* Espaciado interno */
+            transform: skew(-10deg); /* Inclinación hacia la izquierda */
+            width: 90vw;
+  max-height: 200px; /* Ajusta 1.2em según el tamaño de la fuente */
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis; /* Añade "..." al final del texto que se desborda */
         }
         .response-container{
             padding: 12px;

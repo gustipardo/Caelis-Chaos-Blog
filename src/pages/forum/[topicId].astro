@@ -42,6 +42,7 @@ const userId = session?.user?.id
         { 
         Responses.map((response: any)=> (
         <Response 
+        response_id={response.response_id}
         imageSrc={response.author_image} 
         username={response.author_username}  
         content={response.content}  
@@ -51,7 +52,7 @@ const userId = session?.user?.id
         <div class="response-container">
 
 <!--         <textarea rows="1" placeholder="Write your response here..." class="response-input" text-area-adjust/> -->
-            <NewResponseForm user_id={userId} topicId={topicId} client:load/>
+            <NewResponseForm user_id={userId} topicId={topicId} client:load />
         </div>
 
     </div>

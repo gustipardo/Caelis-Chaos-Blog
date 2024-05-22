@@ -31,3 +31,18 @@
   margin-inline: 8px;
   width: fit-content;
 }
+
+#responseQuoted {
+  margin-bottom: 12px;
+  text-align: left;
+  width: 90vw;
+  max-height: 200px; /* Ajusta 1.2em según el tamaño de la fuente */
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis; /* Añade "..." al final del texto que se desborda */
+  background-color: var(--accent); /* Color de fondo para resaltar la cita */
+  border-left: 4px solid var(--gray); /* Línea vertical a la izquierda */
+  padding: 10px; /* Espaciado interno */
+  transform: skew(-10deg); /* Inclinación hacia la izquierda */
+}
+
