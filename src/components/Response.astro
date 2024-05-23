@@ -16,18 +16,19 @@ if(quote){
     <div class="user-profile">
         <img class="image" src={imageSrc} alt={username} />
         <p class="user-info">@{username}</p>
-        <p>a{response_id}</p>
-        <ResponseReply response_id={response_id} content={content} username={username} client:load/>
-    </div>
-{quoteContent && <p class="quote">@{username} wrote: {quoteContent}</p>}
-<p>{content}</p>
 
+    </div>
+{quoteContent && <p class="quote">Quoting @{username}: {quoteContent}</p>}
+<p>{content}</p>
+<div class="options">
+<ResponseReply response_id={response_id} content={content} username={username} client:load/>
+</div>
 </div>
 
 <style>
         .image {
             border-radius: 100%;
-            border: 4px solid var(--accent);
+            border: 4px solid var(--secondary);
             grid-area: image;
             height: 64px;
             aspect-ratio: 1 / 1;
@@ -38,12 +39,11 @@ if(quote){
             background-color: var(--accent); /* Color de fondo para resaltar la cita */
             border-left: 4px solid var(--gray); /* Línea vertical a la izquierda */
             padding: 10px; /* Espaciado interno */
-            transform: skew(-10deg); /* Inclinación hacia la izquierda */
             width: 90vw;
-  max-height: 200px; /* Ajusta 1.2em según el tamaño de la fuente */
-  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
-  overflow: hidden; /* Oculta el texto que se desborda */
-  text-overflow: ellipsis; /* Añade "..." al final del texto que se desborda */
+            max-height: 200px; /* Ajusta 1.2em según el tamaño de la fuente */
+            white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+            overflow: hidden; /* Oculta el texto que se desborda */
+            text-overflow: ellipsis; /* Añade "..." al final del texto que se desborda */
         }
         .response-container{
             padding: 12px;
@@ -63,5 +63,11 @@ if(quote){
         .user-info{
             margin-left: 12px;
             text-align: left;
+            font-size: 24px;
+            color: var(--primary) !important;
+        }
+        .options{
+            display: flex;
+            justify-content: flex-end;
         }
 </style>

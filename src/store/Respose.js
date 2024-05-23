@@ -6,5 +6,6 @@ export const useResponseStore = create((set) => ({
   username: '',
   setResponseId: (id) => set({ response_id: id }),
   setContent: (content) => set({ content }),
-  setUsername: (username) => set({ username })
+  setUsername: (username) => set({ username }),
+  clearResponse: () => set({ response_id: null, content: '', username: '' })
 }))
