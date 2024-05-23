@@ -40,6 +40,7 @@ const NewResponseForm = ({ user_id, topicId }) => {
 
   const handleCancel = () => {
     setValue("");
+    clearResponse();
     const textarea = textareaRef.current;
     textarea.style.height = "1px";
     textarea.style.height = "50px";
