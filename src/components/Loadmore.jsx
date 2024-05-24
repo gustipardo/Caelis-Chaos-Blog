@@ -1,15 +1,15 @@
-import { Button } from "antd"
-import "@/styles/ButtonOutline.css"
-import '@/styles/global.css'
+import { Button } from "antd";
+import "@/styles/ButtonOutline.css";
+import "@/styles/global.css";
 
-export const LoadMore = ({children}) => {
-    return(
+export const LoadMore = ({ children }) => {
+  return (
     <a href="">
-    <Button className="buttonOutline" type="primary" ghost>
+      <Button className="buttonOutline" type="primary" ghost>
         {children}
-    </Button>
+      </Button>
     </a>
-    )
-}
+  );
+};
 
-export default LoadMore
+export default LoadMore;
