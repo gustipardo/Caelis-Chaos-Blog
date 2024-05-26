@@ -4,7 +4,7 @@ title: "Debug mode"
 date: 26/05/2024
 description: "What's coming in the near future?"
 author: "Tobias"
-frontImage: "/Blog #3/TremendiniusGhost.png"
+frontImage: "/postname/TremendiniusGhost.png"
 
 ---
 # {frontmatter.title}
@@ -28,12 +28,12 @@ really know how much I'd need it until testing in-game started taking a big piec
 2 units and make them fight without waiting for the match to develop and those units be trained by the AI actually saves
 a lot of time, and that's exactly why I made the "Debug mode". <br /><br />
 
-![altimage](/Blog #3/SingleplayerMenu.png)
+![altimage](/postname/SingleplayerMenu.png)
 
 In version 0.4, you'll be able to create a "Debug match" simply by pressing a button in this menu that you can access
 by pressing the "Singleplayer" button in the main menu. Pretty easy, right? <br /><br />
 
-![altimage](/Blog #3/DebugMatch.png)
+![altimage](/postname/DebugMatch.png)
 
 After pressing the button, the match will start normally, except for a few differences. The first thing you'll notice is that
 you (and every player) now start with 1.000.000 gold, so you can buy anything you want right from the start. And the second thing
@@ -41,44 +41,44 @@ that probably attracted your attention is the 2 button menu of the left side of 
 a dropdown menu. When pressing the "Units" button, you'll see this. (Things may actually change during development but this the idea
 will probably remain the same.) <br /><br />
 
-![altimage](/Blog #3/UnitMenu.png)
+![altimage](/postname/UnitMenu.png)
 
 Wow, there's now a bunch of buttons with units there now. That's the unit selector and it's function is to spawn any unit in the game
 anywhere you want without restrictions. Let's say you click on Tremendinius for example, well, now a "ghost" version of the unit will follow
 your cursor until you click on the map. Pretty standar RTS stuff, I know, but I still feel like explaining it haha.<br /><br />
 
-![altimage](/Blog #3/TremendiniusGhost.png)
+![altimage](/postname/TremendiniusGhost.png)
 
 If you click anywhere on the map right now, Tremendinius will just spawn there. And you aren't limited to only one like in a normal
 match. You can now fill the screen with heroes if you feel like it! But you probably don't want all of them to be friends and just
 stand there all day. That where the "Team" menu comes in handy, just as with the unit menu, you can click it and a selection of colors
 will appear, each color corresponding to one of the four players.<br /><br />
 
-![altimage](/Blog #3/TremendiniusRed.png)
+![altimage](/postname/TremendiniusRed.png)
 
 This is all good and everything, but debugging not only requires units fighting, but also actual info to work with. That's why I added
 a new piece of UI, that's not limited to Debug Matches, the stats HUD. You can now click any unit or building of your team, and it will
  get selected. When a unit/building gets selected, this will appear on the lower part of the screen<br /><br />
 
-![altimage](/Blog #3/UnitHud.png)
+![altimage](/postname/UnitHud.png)
 
 I admit it looks a bit too rough for now, but it gets the job done. The stats hud shows basic info about the unit, like its
 current health, name, armour, damage, range and splash area. Pretty useful when testing things like new projectiles for example.
 Also, pressing F3 now brings info on screen that was previously displayed on the window title!<br /><br />
 
-![altimage](/Blog #3/F3.png)
+![altimage](/postname/F3.png)
 
 Last but not least, I bet you are curious about the "under the hood" stuff I talked about at the beginning. Because all of these
 doesn't look really hidden. Well I can't talk too much about that yet as it's still a work in progress, I promise I'll go more in 
 detail in the next blog but here's a little preview. I've been working on a system of triggers to control unit's movement so they don't
 just take the shortest path between barracks and instead follow "Lanes".<br /><br />
 
-![altimage](/Blog #3/Lanes.png)
+![altimage](/postname/Lanes.png)
 
 And I've also been working on a map file format, so I can actually edit building positions and triggers without editing the code.
 Meaning the map will no longer be hardcoded in the game but instead saved in its own file.<br /><br />
 
-![altimage](/Blog #3/MapFile.png)
+![altimage](/postname/MapFile.png)
 
 Well, that settles it for today. Hope you enjoyed this blog and are excited as I am about the future features. See you next time!<br /><br />
 
