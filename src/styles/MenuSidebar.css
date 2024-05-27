@@ -74,6 +74,9 @@
 .ant-menu-item {
   color: var(--accent) !important;
 }
+.ant-menu-item:hover .icon {
+  fill: var(--secondary);
+}
 
 .ant-menu-item-active,
 .ant-menu-item-selected {
