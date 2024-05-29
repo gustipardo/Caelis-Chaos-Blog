@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import "@/styles/NewTopic.css";
+
 import { Button } from "antd";
+import { Input } from "antd";
+import LoginPopup from "./LoginPopUp";
+
+const { TextArea } = Input;
 
 const NewTopicForm = ({ user_id }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const postNewTopic = async () => {
     try {
       const response = await fetch("http://localhost:1234/forum/topic", {
@@ -32,12 +38,18 @@ const NewTopicForm = ({ user_id }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       await postNewTopic();
     } catch (error) {
       console.error("Error posting the request:", error);
     }
   };
+  React.useEffect(() => {
+    if (user_id == null) {
+      setIsOpen(true);
+    }
+  }, []);
 
   React.useEffect(() => {
     if (isSuccess) {
@@ -47,19 +59,24 @@ const NewTopicForm = ({ user_id }) => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      {isOpen && <LoginPopup setIsOpen={setIsOpen} />}
       <label className="label">Topic title</label>
-      <input
+      <TextArea
         className="input input-title"
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        laceholder="Controlled autosize"
+        autoSize={{ minRows: 1, maxRows: 5 }}
       />
+
       <label className="label">Content</label>
-      <input
+      <TextArea
         className="input input-content"
-        type="text"
         value={content}
         onChange={(e) => setContent(e.target.value)}
+        placeholder="Controlled autosize"
+        autoSize={{ minRows: 3, maxRows: 5 }}
       />
       <Button className="submit" type="submit" htmlType="submit">
         Submit
