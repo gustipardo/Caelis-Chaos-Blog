@@ -3,9 +3,18 @@ import Swords from "@/icons/swords.astro"
 import MenuSidebar from "@/components/MenuSidebar"
 import '@/styles/global.css'
 import { getSession } from 'auth-astro/server';
+import getImageUrl from '@/services/getImageUrl';
+import addUser from '@/services/addUser';
 
 const session = await getSession(Astro.request)
 console.log(session)
+
+const user = await getImageUrl({ id: session?.user?.id })
+if (Array.isArray(user) && user.length === 0) {
+    console.log("no user")
+  const result = await addUser({ id: session?.user?.id, username: session?.user?.name, image_url: session?.user?.image, email: session?.user?.email });
+}
+console.log(user[0])
 ---
 
 <nav class="navbar">
@@ -22,7 +31,7 @@ console.log(session)
 
 
     <div class="menu">
-        <MenuSidebar session={session} client:only/>
+        <MenuSidebar session={user[0]} client:only/>
     </div>
 </nav>
 <style>
@@ -54,11 +63,20 @@ console.log(session)
     height: 72px;
     display: flex;
     align-items: center;
-    max-width: 940px;
+    max-width: 100%;
+    padding-inline: 12%;
     display: flex;
   justify-content: space-between;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
+}
+
+@media screen and (max-width: 940px) {
+  .navbar{
+    padding-inline: 0px;
+    max-width: 940px;
+  }
+
 }
 </style>
