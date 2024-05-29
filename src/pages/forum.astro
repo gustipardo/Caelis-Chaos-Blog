@@ -17,7 +17,6 @@ console.log(TopicsCards)
 <Layout title="Forum">
   <div class="buttons-container">
     <AntAnchor route="/forum/CreateNewTopic" client:load>Create new topic</AntAnchor>
-    <AntAnchor route="/forum/CreateNewTopic" client:load>Create new topic</AntAnchor>
   </div>
   <ul>
           {
@@ -36,6 +35,7 @@ console.log(TopicsCards)
   </ul>
 </Layout>
 <style>
+
   .create-new-topic{
     background-color: var(--primary);
     font-family: source_serif_pro;
@@ -63,7 +63,7 @@ console.log(TopicsCards)
     padding-inline: 12px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
 </style>
