@@ -1,6 +1,6 @@
 const getTopicsCards = async () => {
   try {
-    const res = await fetch("http://localhost:1234/forum/topicscards");
+    const res = await fetch(`${import.meta.env.BACKEND_URL}/forum/topicscards`);
     const data = await res.json();
     return data;
   } catch (err) {

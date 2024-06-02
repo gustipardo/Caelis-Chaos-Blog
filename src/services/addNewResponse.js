@@ -13,7 +13,10 @@ const addNewResponse = async ({ topicId, authorId, content }) => {
     body: JSON.stringify(input),
   };
   try {
-    const res = await fetch(`http://localhost:1234/forum/response`, options);
+    const res = await fetch(
+      `${import.meta.env.BACKEND_URL}/forum/response`,
+      options
+    );
     const json = await res.json();
     return json;
   } catch (err) {

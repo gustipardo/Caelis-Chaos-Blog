@@ -1,6 +1,6 @@
 const getImageUrl = async ({ id }) => {
   try {
-    const result = await fetch(`http://localhost:1234/users/${id}`);
+    const result = await fetch(`${import.meta.env.BACKEND_URL}/users/${id}`);
     const data = await result.json();
     return data;
   } catch (err) {

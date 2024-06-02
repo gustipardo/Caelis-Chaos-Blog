@@ -1,6 +1,8 @@
 const getResponsesById = async ({ id }) => {
   try {
-    const result = await fetch(`http://localhost:1234/forum/response/${id}`);
+    const result = await fetch(
+      `${import.meta.env.BACKEND_URL}/forum/response/${id}`
+    );
     const data = await result.json();
     return data;
   } catch (err) {
