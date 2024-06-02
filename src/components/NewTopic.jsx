@@ -14,17 +14,20 @@ const NewTopicForm = ({ user_id }) => {
   const [isOpen, setIsOpen] = useState(false);
   const postNewTopic = async () => {
     try {
-      const response = await fetch("http://localhost:1234/forum/topic", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: title,
-          authorId: user_id,
-          content: content,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.BACKEND_URL}/forum/topic`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: title,
+            authorId: user_id,
+            content: content,
+          }),
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         console.log("New Topic added:", data);

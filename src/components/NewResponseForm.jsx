@@ -75,18 +75,21 @@ const NewResponseForm = ({ user_id, topicId }) => {
         quoted_response_id: response_id,
       });
 
-      const response = await fetch("http://localhost:1234/forum/response", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          topicId: topicId,
-          authorId: user_id,
-          content: value,
-          quoted_response_id: response_id,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.BACKEND_URL}/forum/response`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            topicId: topicId,
+            authorId: user_id,
+            content: value,
+            quoted_response_id: response_id,
+          }),
+        }
+      );
       if (response.ok) {
         const data = await response.json();
         console.log("New response added:", data);
