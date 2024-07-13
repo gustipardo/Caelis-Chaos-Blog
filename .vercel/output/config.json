@@ -1,0 +1,68 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/api\\/auth(?:\\/(.*?))?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/404\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/about\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/forum\\/CreateNewTopic\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/forum\\/([^/]+?)\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/forum\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/login\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/posts\\/Thebeginning\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/singUp\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/updates\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "_render"
+		},
+		{
+			"src": "/.*",
+			"dest": "_render",
+			"status": 404
+		}
+	]
+}

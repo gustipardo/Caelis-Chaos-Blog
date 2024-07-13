@@ -1,0 +1,1 @@
+import{_ as e}from"./preload-helper.ygWHROA3.js";import"./hoisted.DnFK6dK7.js";const{signIn:i,signOut:l}=await e(()=>import("./client.BqElmF-z.js"),[]),o=document.querySelector("#login-google"),t=document.querySelector("#logout");o&&(o.onclick=()=>i("google"));t&&(t.onclick=()=>l());

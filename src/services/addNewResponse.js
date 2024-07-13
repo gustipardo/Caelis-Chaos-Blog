@@ -14,7 +14,7 @@ const addNewResponse = async ({ topicId, authorId, content }) => {
   };
   try {
     const res = await fetch(
-      `${import.meta.env.BACKEND_URL}/forum/response`,
+      `${import.meta.env.PUBLIC_BACKEND_URL}/forum/response`,
       options
     );
     const json = await res.json();

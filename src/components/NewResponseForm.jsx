@@ -76,7 +76,7 @@ const NewResponseForm = ({ user_id, topicId }) => {
       });
 
       const response = await fetch(
-        `${import.meta.env.BACKEND_URL}/forum/response`,
+        `${import.meta.env.PUBLIC_BACKEND_URL}/forum/response`,
         {
           method: "POST",
           headers: {

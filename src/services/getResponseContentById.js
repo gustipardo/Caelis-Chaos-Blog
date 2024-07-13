@@ -1,7 +1,7 @@
 const getResponseContentById = async ({ quote }) => {
   try {
     const result = await fetch(
-      `${import.meta.env.BACKEND_URL}/forum/quote/${quote}`
+      `${import.meta.env.PUBLIC_BACKEND_URL}/forum/quote/${quote}`
     );
     const data = await result.json();
     return data;

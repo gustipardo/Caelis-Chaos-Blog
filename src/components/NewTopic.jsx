@@ -15,7 +15,7 @@ const NewTopicForm = ({ user_id }) => {
   const postNewTopic = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.BACKEND_URL}/forum/topic`,
+        `${import.meta.env.PUBLIC_BACKEND_URL}/forum/topic`,
         {
           method: "POST",
           headers: {

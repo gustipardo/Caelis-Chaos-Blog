@@ -1,7 +1,7 @@
 const addUser = async ({ id, username, image_url, email }) => {
   console.log(id, username, image_url, email);
   try {
-    const result = await fetch(`${import.meta.env.BACKEND_URL}/users`, {
+    const result = await fetch(`${import.meta.env.PUBLIC_BACKEND_URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

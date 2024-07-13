@@ -1,7 +1,7 @@
 const getUserUuid = async ({ id, provider }) => {
   try {
     const res = await fetch(
-      `${import.meta.env.BACKEND_URL}/users/${id}/${provider}`
+      `${import.meta.env.PUBLIC_BACKEND_URL}/users/${id}/${provider}`
     );
     const json = await res.json();
     return json[0].user_id;
