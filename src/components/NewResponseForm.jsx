@@ -128,6 +128,7 @@ const NewResponseForm = ({ user_id, topicId }) => {
             icon={Close}
             onClick={() => clearResponse()}
           />
+          <Message />
         </div>
       )}
 
