@@ -115,7 +115,7 @@ const MenuSidebar = () => {
   const items = [
     getItem(<a href="/">Home</a>, "/", Home),
     getItem(<a href="/updates">Blog</a>, "/updates", Blog),
-    getItem(<a href="/forum">Forum</a>, "/forum", Forum),
+/*     getItem(<a href="/forum">Forum</a>, "/forum", Forum), */
     getItem(
       <a href="https://www.youtube.com/embed/5RIi8KBs2sY?si=TLsgo_3vyr-UjvGn">
         Trailer
